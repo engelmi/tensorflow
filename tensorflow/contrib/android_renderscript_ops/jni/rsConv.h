@@ -34,6 +34,10 @@ struct rsConvInfo{
     int batch;
     int data_format; // 4 F32, 1 U8
 
+    int filter_sz;
+    int input_sz;
+    int output_sz;
+
     rsConvInfo(int n1, int n2, int n3, int n4, int n5, int n6, int n7, int n8, int n9, int n10, int n11, int n12, int n13, int n14){
         in_depth=n1;
         input_rows=n2;
@@ -43,16 +47,18 @@ struct rsConvInfo{
         pad_rows=n8;pad_cols=n9;
         out_depth=n10;out_rows=n11;out_cols=n12;
         batch=n13;data_format=n14;
+
+        filter_sz = out_depth * in_depth * filter_rows * filter_cols;
+        input_sz = in_depth * input_rows * input_cols;
+        output_sz = out_depth * out_rows * out_cols;
     };
 };
 
 static sp<RS> mRS = new RS();
 static const char* cachePath = "/data/user/0/org.tensorflow.demo/cache";
-static int tot_conv_cnt = 22; 
-static int count = 0; 
-static std::vector<sp<Allocation>> allFilters_alloc_vec;
-static std::vector<sp<Allocation>> allInputs_alloc_vec;
-static std::vector<sp<Allocation>> allOutputs_alloc_vec;
+static std::unordered_map<int, sp<Allocation>> allFilters_alloc_map;
+static std::unordered_map<int, sp<Allocation>> allInputs_alloc_map;
+static std::unordered_map<int, sp<Allocation>> allOutputs_alloc_map;
 
 sp<ScriptC_mScriptConv>& initSC()
 {
@@ -63,38 +69,31 @@ sp<ScriptC_mScriptConv>& initSC()
 template <typename T>
 void rsConv_script(void* filter, void* input, void* output, rsConvInfo convInfo)
 {
-    int idx = count%tot_conv_cnt;
-
     if(!androidrs::conv::mRS->getContext()){
         androidrs::conv::mRS->init(androidrs::conv::cachePath);
     }
 
-    if(count<tot_conv_cnt){
+    if(allFilters_alloc_map.find(convInfo.filter_sz)==allFilters_alloc_map.end()){
         static sp<const Element> e = Element::F32(androidrs::conv::mRS);
-
-        // alloc filter
-        sp<const Type> all_filters_t = Type::create(androidrs::conv::mRS, e, convInfo.out_depth * convInfo.in_depth * convInfo.filter_rows * convInfo.filter_cols,
-                                                        0,
-                                                        0);
+        sp<const Type> all_filters_t = Type::create(androidrs::conv::mRS, e, convInfo.filter_sz, 0, 0);
         sp<Allocation > allFilters_alloc = Allocation::createTyped(androidrs::conv::mRS, all_filters_t, RS_ALLOCATION_USAGE_SHARED | RS_ALLOCATION_USAGE_SCRIPT);
-        // alloc input
-        sp<const Type> all_inputs_t = Type::create(androidrs::conv::mRS, e, convInfo.in_depth*convInfo.input_rows*convInfo.input_cols,
-                                                        0,
-                                                        0);
+        allFilters_alloc_map[convInfo.filter_sz] = allFilters_alloc;
+    }
+    if(allInputs_alloc_map.find(convInfo.input_sz)==allInputs_alloc_map.end()){
+        static sp<const Element> e = Element::F32(androidrs::conv::mRS);
+        sp<const Type> all_inputs_t = Type::create(androidrs::conv::mRS, e, convInfo.input_sz, 0, 0);
         sp<Allocation > allInputs_alloc = Allocation::createTyped(androidrs::conv::mRS, all_inputs_t, RS_ALLOCATION_USAGE_SHARED | RS_ALLOCATION_USAGE_SCRIPT);
-        //alloc output
-        sp<const Type> all_outputs_t = Type::create(androidrs::conv::mRS, e, convInfo.out_depth*convInfo.out_rows*convInfo.out_cols,
-                                                        0,
-                                                        0);
+        allInputs_alloc_map[convInfo.input_sz] = allInputs_alloc;
+    }
+    if(allOutputs_alloc_map.find(convInfo.output_sz)==allOutputs_alloc_map.end()){
+        static sp<const Element> e = Element::F32(androidrs::conv::mRS);
+        sp<const Type> all_outputs_t = Type::create(androidrs::conv::mRS, e, convInfo.output_sz, 0, 0);
         sp<Allocation > allOutputs_alloc = Allocation::createTyped(androidrs::conv::mRS, all_outputs_t, RS_ALLOCATION_USAGE_SHARED | RS_ALLOCATION_USAGE_SCRIPT);
-
-        allFilters_alloc_vec.push_back(allFilters_alloc);
-        allInputs_alloc_vec.push_back(allInputs_alloc);
-        allOutputs_alloc_vec.push_back(allOutputs_alloc);
+        allOutputs_alloc_map[convInfo.output_sz] = allOutputs_alloc;
     }
 
-    allFilters_alloc_vec[idx]->copy1DFrom(filter);
-    allInputs_alloc_vec[idx]->copy1DFrom(input);
+    allFilters_alloc_map[convInfo.filter_sz]->copy1DFrom(filter);
+    allInputs_alloc_map[convInfo.input_sz]->copy1DFrom(input);
 
     sp<ScriptC_mScriptConv> sc = initSC();
 
@@ -112,15 +111,14 @@ void rsConv_script(void* filter, void* input, void* output, rsConvInfo convInfo)
     sc->set_out_rows(convInfo.out_rows);
     sc->set_out_cols(convInfo.out_cols);
 
-    sc->set_filters(allFilters_alloc_vec[idx]);
-    sc->set_inputs(allInputs_alloc_vec[idx]);
+    sc->set_filters(allFilters_alloc_map[convInfo.filter_sz]);
+    sc->set_inputs(allInputs_alloc_map[convInfo.input_sz]);
     sc->invoke_initParam();
 
-    sc->forEach_launchConvF32(allOutputs_alloc_vec[idx]);
+    sc->forEach_launchConvF32(allOutputs_alloc_map[convInfo.output_sz]);
 
     // sync
-    allOutputs_alloc_vec[idx]->copy1DTo(output);
-    count++;
+    allOutputs_alloc_map[convInfo.output_sz]->copy1DTo(output);
 };
 
 }

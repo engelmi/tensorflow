@@ -8,7 +8,7 @@ This package contains two RenderScript ops: `rsMatmul_sgemm` and `rsConv_script`
 
 ## Build with RenderScript support
 * `git clone -b RenderScript https://github.com/EE202B/tensorflow.git` The current RenderScript modification is based on TF r1.1
-* Make sure your `bazel` version is `0.4.3`. Building with `0.4.5` has troubles and has been filed an issue here [0.4.5 build issue](https://github.com/tensorflow/tensorflow/commit/fba05c300bf6840e76787680ed7fd1239cdb9ad0#commitcomment-21467983). Run `bazel version` first, if not `0.4.3` run `brew switch bazel 0.4.3` or install the binary installer from [Bazel GitHub Release page](https://github.com/bazelbuild/bazel/releases/tag/0.4.3).
+* Make sure your `bazel` version is `0.4.3`. Building with `0.4.5` has troubles and has been filed an issue here [0.4.5 build issue](https://github.com/bazelbuild/bazel/issues/2739#issue-217007576). Run `bazel version` first, if not `0.4.3` run `brew switch bazel 0.4.3` or install the binary installer from [Bazel GitHub Release page](https://github.com/bazelbuild/bazel/releases/tag/0.4.3).
 * Follow the [original Android example](https://github.com/tensorflow/tensorflow/tree/master/tensorflow/examples/android) to setup the `WORKSPACE`.  
 
     Our setup on OS X is:
@@ -27,7 +27,7 @@ This package contains two RenderScript ops: `rsMatmul_sgemm` and `rsConv_script`
         api_level = 14
     )
     ```
-* If use custom model (not Inception5h) or custom app (not org.tensorflow.demo), you must change the number of the `matmul` ops and `conv` ops at `androidrs::matmul` and `androidrs::conv`. Also change the package name to your own within these two namespaces. This hardcoding issue might be removed in future update. 
+* Change the package name of the `cachePath` to your own at `rsConv.h` and `rsMatmul.h`. This hardcoding issue might be removed in future update. 
 * Build with bazel:  
     `bazel build -c opt //tensorflow/examples/android:tensorflow_demo`
 * Finally install to android phone:  
