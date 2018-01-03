@@ -58,7 +58,7 @@ config_setting(
     name = "xsmm_backward",
     values = {
         "define": "tensorflow_xsmm=1",
-        "define": "tensorflow_xsmm_backward=1",
+        #"define": "tensorflow_xsmm_backward=1",
     },
 )
 
