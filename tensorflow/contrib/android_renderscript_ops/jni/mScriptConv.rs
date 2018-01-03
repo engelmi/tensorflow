@@ -1,6 +1,6 @@
 #pragma version(1)
-#pragma rs java_package_name(com.foo.bar)
 #pragma rs_fp_relaxed
+#pragma rs java_package_name(org.tensorflow.demo)
 
 int32_t in_depth;
 int32_t input_rows;
