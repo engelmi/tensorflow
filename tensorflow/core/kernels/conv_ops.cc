@@ -384,10 +384,16 @@ class Conv2DOp : public BinaryOp<T> {
       return;
     }
 
-    //////////////////////// renderscript support
+    // Flag for using RenderScript - comment out to use the eigen-implementation
+	#define USE_RENDERSCRIPT
+
     std::stringstream ss;
-    double start, finish;
-    start = (double)(clock()/(double)CLOCKS_PER_SEC);
+	int useRS = 0;
+    double start, finish;	
+	// renderscript
+	#ifdef USE_RENDERSCRIPT
+	useRS = 1;
+	start = (double)(clock()/(double)CLOCKS_PER_SEC);
     androidrs::conv::rsConvInfo convInfo(in_depth, input_rows, input_cols, filter_rows, filter_cols,
                                          stride_rows, stride_cols, pad_rows, pad_cols, 
                                          out_depth, out_rows, out_cols, batch, sizeof(T));
@@ -395,15 +401,21 @@ class Conv2DOp : public BinaryOp<T> {
                                       static_cast<void*>(const_cast<char*>(input.tensor_data().data())), 
                                       static_cast<void*>(const_cast<char*>(output->tensor_data().data())), 
                                       convInfo);
-    finish = (double)(clock()/(double)CLOCKS_PER_SEC);
-    ss << "Conv consume time: " << (finish - start) << " sec";
-    android_log_print(ss.str().c_str()); 
-    return;
-    //////////////////////// renderscript support
+	#endif
 
+	// eigen
+	#ifndef USE_RENDERSCRIPT
+	useRS = 0;
+	start = (double)(clock()/(double)CLOCKS_PER_SEC);
     launcher_.launch(context, use_cudnn_, cudnn_use_autotune_, input, filter,
                      stride_rows, stride_cols,
                      BrainPadding2EigenPadding(padding_), output, data_format_);
+	#endif
+
+    finish = (double)(clock()/(double)CLOCKS_PER_SEC);
+    //ss << "Conv consume time: " << (finish - start) << " sec";
+	ss << useRS << "|" << "Conv" << "|" << (finish - start) << "|" << in_depth << "|" << input_rows << "|" << input_cols  << "|" << filter_rows << "|" << filter_cols << "|" << stride_rows << "|" << stride_cols << "|" << pad_rows << "|" << pad_cols << "|" << out_depth << "|" << out_rows << "|" << out_cols << "|" << batch;
+    android_log_print(ss.str().c_str()); 
   }
 
  private:

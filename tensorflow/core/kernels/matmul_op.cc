@@ -309,21 +309,34 @@ class MatMulOp : public OpKernel {
       return;
     }
 
-    //////////////////////// renderscript support
+    // Flag for using RenderScript - comment out to use the eigen-implementation
+	#define USE_RENDERSCRIPT
+
     std::stringstream ss;
-    double start, finish;
-    start = (double)(clock()/(double)CLOCKS_PER_SEC);
+	int useRS = 0;
+    double start, finish;	
+	// renderscript
+	#ifdef USE_RENDERSCRIPT
+	useRS = 1;
+	start = (double)(clock()/(double)CLOCKS_PER_SEC);
     androidrs::matmul::rsMatmul_sgemm(static_cast<void*>(const_cast<char*>(a.tensor_data().data())), 0, 
                                   static_cast<void*>(const_cast<char*>(b.tensor_data().data())), 0, 
                                   static_cast<void*>(const_cast<char*>(out->tensor_data().data())), 
                                   a.dim_size(0), b.dim_size(1), a.dim_size(1), 1, 0);
-    finish = (double)(clock()/(double)CLOCKS_PER_SEC);
-    ss << "Matmul consume time: " << (finish - start) << " sec";
-    android_log_print(ss.str().c_str());   
-    return;
-    //////////////////////// renderscript support
+	#endif
 
+	// eigen
+	#ifndef USE_RENDERSCRIPT
+	useRS = 0;
+	start = (double)(clock()/(double)CLOCKS_PER_SEC);
     LaunchMatMul<Device, T, USE_CUBLAS>::launch(ctx, this, a, b, dim_pair, out);
+	#endif
+	
+	// log execution time of matmul operation
+	finish = (double)(clock()/(double)CLOCKS_PER_SEC);
+    //ss << "Matmul consume time: " << (finish - start) << " sec";
+	ss << useRS << "|" << "Matmul" << "|" << (finish - start) << "|" << a.shape().DebugString() << "|" << b.shape().DebugString() << "|" << out_shape.DebugString();
+    android_log_print(ss.str().c_str());
   }
 
  private:
