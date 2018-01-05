@@ -1,5 +1,5 @@
 # data folder
-setwd("~/HM/WS2017/Hauptseminar/tensorflow-source/RSTensorFlowHM/tensorflow/profiled-data/")
+setwd("~/HM/WS2017/Hauptseminar/tensorflow-source/RSTensorFlowHM/tensorflow/rstensorflow-analysis/experiment-data/")
 
 # ---------------------------------
 #   j5Trepn
