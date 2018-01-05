@@ -15,3 +15,11 @@ node_modules
 __pycache__
 *.swp
 .vscode/
+rstensorflow-analysis/paper/relatedwork
+*.aux
+*.bbl
+*.log
+*.out
+*.blg
+*.synctex.gz
+*.Rhistory
