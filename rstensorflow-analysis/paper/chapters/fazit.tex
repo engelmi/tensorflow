@@ -1,0 +1,31 @@
+\section{Fazit und Ausblick}
+\label{sec:ausblick}
+Einige Probleme:
+	+ erstmal zum laufen bekommn (von rstensorflow bereitgestellter mod. build funzt nicht, build prozess etc.)
+	+ rekonstruktion der experimente
+	Hier kann aus dem referenzpaper bzw. dessen website zitiert oder sich darauf bezogen werden: ist schweres zeug, rs nativ in tensorflow zu integrieren
+
+Schlussfolgerung:
+	+ nur weil es die gpu ist bzw. eine zusätzliche ressource, muss es nicht unbedingt schneller sein
+	+ ggf derzeit einfach nicht ausgereift -> standards!
+	+ oder renderscript einfach ungeeignet
+\begin{itemize}
+	\item{Fazit
+		\begin{itemize}
+			\item{Erzielt RSTensorFlow ähnliche Ergebnisse bei den hier getesteten Geräten im Vergleich zu den Nexus-Geräten, welche in \cite{rstensorflow2017} verwendet wurden?}
+			\item{Konnte eine Verbesserung von Conv2D erzielt werden?}
+		\end{itemize}
+		}
+	\item{Ausblick (oder Future Work)
+		\begin{itemize}
+			\item{TensorFlow Lite}
+			\item{OpenCL statt RenderScript}
+		\end{itemize}
+		}
+\end{itemize}
+
+
+
+\section{Zukünftige Arbeiten}
+\label{sec:futurework}
++ future work: unfolding umzusetzen (wie auswertung zeigt: sehr viele matmuls bei conv und damit ist nur noch 1 nötig -> performance-memory-tradeoff? eher unwahrscheinlich, da für conv2d und rs eh die tensoren kopiert werden und bei auswertung kaum veränderungen bei dem genutzten speicher zu sehen waren) und somit 

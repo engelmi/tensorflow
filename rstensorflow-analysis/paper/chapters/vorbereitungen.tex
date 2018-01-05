@@ -1,0 +1,25 @@
+\section{Vorbereitungen}
+\label{sec:vorbereitungen}
++ versucht die prebuilds von rstensorflow (welche auf der homepage/github bereit gestellt sind) zu verwenden
+	- für bestmögliche vergleichbarkeit bzw rekonstruktion der experimente
+	- lediglich die eigen-prebuild (ohne rs) ist nutzbar
+	- die rs-prebuild schmiert ab
+		+ nach längerer suche, konnte festgestellt werden, dass eine .so nicht geladen werden konnte
+		+ es handelt sich dabei um die .so, welche im rahmen des rstf projekts umgesetzt wurde
+		+ daher ist das eigenständige kompilieren von rstensorflow bzw. der android demo nötig was in \ref{subsec:buildprozess} dargestellt wird
+		+ optional: dies wird gleichzeitig als vorbereitung für die optimierung der conv2d betrachtet
+		
+
+\subsection{Der Build-Prozess}
+\label{subsec:buildprozess}
++ tools - bazel, android sdk, ndk
+
+\subsection{Rekonstruktion der Experimente}
+\label{subsec:rekonstruktion}
++ code analyse
++ grafiken für matmul und conv2d - wie kommen die auf die jeweiligen werte der x-Achse?
+	+ conv2d: Anzahl Filter
+		- conv\_ops.cc
+		- Da keine Filteranzahl mit 1, 3 oder xxx gefunden wurde, und leider keine genaue beschreibung vorhanden ist, wie die Grafik zustande kommt, ist davon auszugehen, dass ein separates programm verwendet wurde (diese Hypothese wird gestützt durch fehlendes loggen der anzahl dimensionen im modifizierten tf quellcode)
+		- Anzahl Filter ist Hyperparameter
+		- K == Anzahl der Filter == Output-Dimension3 (Breite und Höhe durch stride definiert)

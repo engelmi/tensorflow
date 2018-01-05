@@ -1,0 +1,74 @@
+\section{Experimente}
+\label{sec:experimente}
++ Kurze Einleitung, was in dem Kapitel gemacht wird
++ Hardware-Tabelle (inkl. die Hardware aus \cite{rstensorflow2017})
+
+\subsection{Verwendete Metriken}
+\label{subsec:metriken}
+Mögliche weitere Metriken wie in Kapitel 7 von \cite{deepmon2017} beschrieben ggf. verwenden
+\begin{itemize}
+	\item{Ist Metrik für dieses Projekt sinnvoll?}
+	\item{Ist Metrik für dieses Projekt umsetzbar (Aufwand etc.)?}
+\end{itemize}
+
+Verwendete Metrik in \cite{rstensorflow2017}: Ausführungszeit
+	+ im Code von tensorflow integriert 
+	+ gibt auskunft über die Zeit einer einzelnen matmul-/conv2d operation und eines kompletten pfades
+	+ über adb logcat -s TF\_ANDROID\_LOG können diese in eine Datei gelenkt werden
+
+Metrik CPU Load
+	+ über trepn profiler
+	+ gibt auskunft über die auslastung der ressource
+	
+Metrik GPU Load
+	+ über trepn profiler
+	+ gibt auskunft über die auslastung der ressource
+
+Metrik RAM (Memory Space):
+	+ über trepn profiler
+	+ nicht straight forward, da von Trepn Profiler RAM des kompletten Systems gemessen wird
+	+ daher System im Ruhezustand profilen (inkl. laufender Trepn app) und (durchschnittlichen) RAM ermitteln und vom später gemessenen abziehen
+
+\subsection{Aufbau des Experiments}
+\label{subsec:aufbauexperiment}
++ Software
+	+ Mit was werden die Daten erzeugt?
+		- trepn profiler (app) -> Einstellungen definieren und speichern!
+		- log ausgaben (direkt von tensorflow demo) -> siehe \ref{subsec:anpassungentf}
++ Hardware
+	+ ggf. abbildung?
+Beschreibung des Experiment-Aufbaus
+\begin{itemize}
+	\item{Wahl der Android-Geräte (Samsung J5 und ggf. weitere), deren Android-Version und Hardware)}
+	\item{Wie werden die gewählten Metriken gemessen?}
+\end{itemize}
+
+\subsection{Anpassungen von TensorFlow}
+\label{subsec:anpassungentf}
++ Die Trepn Profiler "out-of-the-box" aber die logausgaben müssen aufbereitet werden, da die vorhandenen logausgaben unzureichend sind
++ adb logging
+	da nur "ein Stream" verfügbar - alles mit adb logcat TF\_ANDROID\_LOG in eine CSV-Datei
+	Format: <Feld1>|<Feld n>|...
+	Dabei ist Feld1 der Index, um was für eine Operation es sich handelt (da von classify sowohl conv2d als auch matmul ausgeführt wird)
+	Für matmul:
+		+ die matrizengröße
+	Für conv2d:
+		+ anzahl filter (== outdepth)
+		+ stride		]
+		+ padding		- Berechnung der Anzahl der matmul operationen -> hat einfluss auf ausführungszeit? ggf. mit unfolding doch verbesserbar? (für Ausblick dann)
+		+ filtergröße	]
+		+ inputgröße	]
+		
+
+\subsection{Durchführung}
+\label{subsec:experimentdurchfuehrung}
++ trepn profiler: profile system
+	- profiling erst im standard modus um die normale menge an memory zu erhalten
+	- dann app starten
+
+\subsection{Auswertung}
+\label{subsec:experimentauswertung}
++ was kamen für ergebnisse heraus?
++ vergleich zu \cite{rstensorflow2017}
+	- deutet auf eine generelle verschlechterung mit rs hin
+	- direkte vergleichbarkeit aber leider nicht gegeben, da die genaue erhebung der daten unbekannt
