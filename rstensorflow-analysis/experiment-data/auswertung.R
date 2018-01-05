@@ -5,7 +5,7 @@ setwd("~/HM/WS2017/Hauptseminar/tensorflow-source/RSTensorFlowHM/tensorflow/rste
 #   j5Trepn
 
 # Eigen-Data
-j5TrepnDataEigen <- read.csv(file = "J5/preprocessed/experiment-trepn-eigen1.csv")
+j5TrepnDataEigen <- read.csv(file = "J5/preprocessed/experiment-trepn-eigen.csv")
 j5TrepnDataEigen$Time...ms. <- j5TrepnDataEigen$Time...ms./1000/60
 j5TrepnDataEigen$Time...ms..1 <- j5TrepnDataEigen$Time...ms..1/1000/60
 j5TrepnDataEigen$Time...ms..2 <- j5TrepnDataEigen$Time...ms..2/1000/60
@@ -41,7 +41,7 @@ lines(loj5TrepnEigenMemoryApp, col = 'red')
 dev.off()
 
 # RS-Data
-j5TrepnDataRS <- read.csv(file = "J5/preprocessed/experiment-trepn-rs1.csv")
+j5TrepnDataRS <- read.csv(file = "J5/preprocessed/experiment-trepn-rs.csv")
 j5TrepnDataRS$Time...ms. <- j5TrepnDataRS$Time...ms./1000/60
 j5TrepnDataRS$Time...ms..1 <- j5TrepnDataRS$Time...ms..1/1000/60
 j5TrepnDataRS$Time...ms..2 <- j5TrepnDataRS$Time...ms..2/1000/60
@@ -107,7 +107,7 @@ dev.off()
 #   s7Trepn
 
 # Eigen-Data
-s7TrepnDataEigen <- read.csv(file = "S7/preprocessed/experiment-trepn-eigen1.csv")
+s7TrepnDataEigen <- read.csv(file = "S7/preprocessed/experiment-trepn-eigen.csv")
 s7TrepnDataEigen$Time...ms. <- s7TrepnDataEigen$Time...ms./1000/60
 s7TrepnDataEigen$Time...ms..1 <- s7TrepnDataEigen$Time...ms..1/1000/60
 s7TrepnDataEigen$Time...ms..2 <- s7TrepnDataEigen$Time...ms..2/1000/60
@@ -132,7 +132,7 @@ lines(los7TrepnEigenMemoryApp, col = 'red')
 dev.off()
 
 # RS-Data
-s7TrepnDataRS <- read.csv(file = "S7/preprocessed/experiment-trepn-rs1.csv")
+s7TrepnDataRS <- read.csv(file = "S7/preprocessed/experiment-trepn-rs.csv")
 s7TrepnDataRS$Time...ms. <- s7TrepnDataRS$Time...ms./1000/60
 s7TrepnDataRS$Time...ms..1 <- s7TrepnDataRS$Time...ms..1/1000/60
 s7TrepnDataRS$Time...ms..2 <- s7TrepnDataRS$Time...ms..2/1000/60
@@ -397,10 +397,10 @@ dev.off()
 jpeg("plots/aa-paper-matrizengroesse.jpg")
 matmulData <- data.frame(
   Category <- c("(1,1024)x(1024,1008)","(1,1024)x(1024,1008)","(1,1024)x(1024,1008)","(1,1024)x(1024,1008)",
-                  "(1,2048)x(2048,1024)","(1,2048)x(2048,1024)","(1,2048)x(2048,1024)","(1,2048)x(2048,1024)"),
+                "(1,2048)x(2048,1024)","(1,2048)x(2048,1024)","(1,2048)x(2048,1024)","(1,2048)x(2048,1024)"),
   SubCategory <- c("j5eigen","j5rs","s7eigen","s7rs","j5eigen","j5rs","s7eigen","s7rs"),
   filterdata <- c(mean(dfj5Matmul1024Eigen$execute_time), mean(dfj5Matmul1024RS$execute_time), mean(dfs7Matmul1024Eigen$execute_time), mean(dfs7Matmul1024RS$execute_time),
-                    mean(dfj5Matmul2048Eigen$execute_time), mean(dfj5Matmul2048RS$execute_time), mean(dfs7Matmul2048Eigen$execute_time), mean(dfs7Matmul2048RS$execute_time))
+                  mean(dfj5Matmul2048Eigen$execute_time), mean(dfj5Matmul2048RS$execute_time), mean(dfs7Matmul2048Eigen$execute_time), mean(dfs7Matmul2048RS$execute_time))
 )
 
 colnames(matmulData)<-c("Matrixgröße","subcategory","Ausführungszeit")
@@ -410,3 +410,7 @@ ggplot(data = matmulData, aes(Matrixgröße, Ausführungszeit)) +
   theme(legend.position="none", panel.background = element_rect(fill = '#efefef', colour = 'white'))
 dev.off()
 
+# 
+convOutputTensor <- j5ADBEigenConv[c("out_rows", "out_cols", "out_depth")]
+convOutputTensorUnique <- unique(convOutputTensor)
+convOutputTensorMatMulOps <- convOutputTensorUnique$out_rows * convOutputTensorUnique$out_cols * convOutputTensorUnique$out_depth

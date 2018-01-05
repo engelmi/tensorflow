@@ -10,7 +10,7 @@ def parseADBEigenLogs(devicestr):
 	convfile.write("execute_time,in_depth,input_rows,input_cols,filter_rows,filter_cols,stride_rows,stride_cols,pad_rows,pad_cols,out_depth,out_rows,out_cols,\n")
 	matmulfile.write("execute_time,a_matrix_height,a_matrix_width,b_matrix_height,b_matrix_width,out_matrix_height,out_matrix_width\n")
 
-	with open(os.path.join(devicestr, "experiment-adb-eigen1.log")) as adbEigen:
+	with open(os.path.join(devicestr, "experiment-adb-eigen.log")) as adbEigen:
 		for line in adbEigen:
 			parts = line.split('|')
 			if parts[0] == 'Path':
@@ -40,7 +40,7 @@ def parseADBRSLogs(devicestr):
 	convfile.write("execute_time,in_depth,input_rows,input_cols,filter_rows,filter_cols,stride_rows,stride_cols,pad_rows,pad_cols,out_depth,out_rows,out_cols,\n")
 	matmulfile.write("execute_time,a_matrix_height,a_matrix_width,b_matrix_height,b_matrix_width,out_matrix_height,out_matrix_width\n")
 
-	with open(os.path.join(devicestr, "experiment-adb-rs1.log")) as adbEigen:
+	with open(os.path.join(devicestr, "experiment-adb-rs.log")) as adbEigen:
 		for line in adbEigen:
 			parts = line.split('|')
 			if parts[0] == 'Path':
