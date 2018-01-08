@@ -410,7 +410,20 @@ ggplot(data = matmulData, aes(Matrixgröße, Ausführungszeit)) +
   theme(legend.position="none", panel.background = element_rect(fill = '#efefef', colour = 'white'))
 dev.off()
 
-# 
-convOutputTensor <- j5ADBEigenConv[c("out_rows", "out_cols", "out_depth")]
-convOutputTensorUnique <- unique(convOutputTensor)
-convOutputTensorMatMulOps <- convOutputTensorUnique$out_rows * convOutputTensorUnique$out_cols * convOutputTensorUnique$out_depth
+# Check for a correlation between "count of matmul for a conv and execution time"
+convj5EigenOutputTensor <- j5ADBEigenConv[c("out_rows", "out_cols", "out_depth")]
+convj5EigenOutputTensorUnique <- unique(convj5EigenOutputTensor)
+convj5EigenOutputTensorMatMulOps <- convj5EigenOutputTensorUnique$out_rows * convj5EigenOutputTensorUnique$out_cols * convj5EigenOutputTensorUnique$out_depth
+convs7EigenOutputTensor <- s7ADBEigenConv[c("out_rows", "out_cols", "out_depth")]
+convs7EigenOutputTensorUnique <- unique(convs7EigenOutputTensor)
+convs7EigenOutputTensorMatMulOps <- convs7EigenOutputTensorUnique$out_rows * convs7EigenOutputTensorUnique$out_cols * convs7EigenOutputTensorUnique$out_depth
+
+convj5EigenOutputTensorMatMulOpsAll <- convj5EigenOutputTensor$out_rows * convj5EigenOutputTensor$out_cols * convj5EigenOutputTensor$out_depth
+convs7EigenOutputTensorMatMulOpsAll <- convs7EigenOutputTensor$out_rows * convs7EigenOutputTensor$out_cols * convs7EigenOutputTensor$out_depth
+
+modelj5 <- lm(convj5EigenOutputTensorMatMulOpsAll ~ j5ADBEigenConv$execute_time)
+models7 <- lm(convs7EigenOutputTensorMatMulOpsAll ~ s7ADBEigenConv$execute_time)
+plot(convj5EigenOutputTensorMatMulOpsAll ~ j5ADBEigenConv$execute_time)
+abline(model, col="red")
+plot(convs7EigenOutputTensorMatMulOpsAll ~ s7ADBEigenConv$execute_time)
+abline(model, col="red")
