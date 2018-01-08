@@ -1,9 +1,45 @@
 \section{Experimente}
 \label{sec:experimente}
-+ Kurze Einleitung, was in dem Kapitel gemacht wird
 + Hardware-Tabelle (inkl. die Hardware aus \cite{rstensorflow2017})
 
-\subsection{Verwendete Metriken}
+\renewcommand{\arraystretch}{1.5}
+\begin{table}[!ht]
+	\begin{center}
+		\begin{tabular}{c||c|c}
+			\textbf{Modell} & Samsung J5 & Samsung S7 \\
+			\hline
+			\textbf{Android OS} & 6.0 & 6.0 \\
+			\hline
+			\textbf{CPU} & 4x1,2 GHz & 4x2,3 GHz und 4x1,6 GHz \\
+			\hline
+			\textbf{GPU} & Adreno 306 & Mali-T880 MP12 \\ 
+			\hline
+			\textbf{RAM} & 1,5 GB & 4 GB \\
+		\end{tabular}
+	\end{center}
+	\caption{Ein Auszug aus der Hardware-Spezifikation der gewählten Modelle für die Experimente. }
+	\label{tbl:hardware}
+\end{table}
++ was wird alles genutzt? 
+	- trepn
+	- adb
+
+\subsection{Rekonstruktion}
+\label{subsec:rekonstruktion}
++ grafiken für matmul und conv2d - wi- Da keine Filteranzahl mit 1, 3 oder xxx gefunden wurde, und leider keine genaue beschreibung vorhanden ist, wie die Grafik zustande kommt, ist davon auszugehen, dass ein separates programm verwendet wurde (diese Hypothese wird gestützt durch fehlendes loggen der anzahl dimensionen im modifizierten tf quellcode)
+- Anzahl Filter ist Hyperparameter
+- K == Anzahl der Filter == Output-Dimension3 (Breite und Höhe durch stride definiert)
+e kommen die auf die jeweiligen werte der x-Achse?
++ conv2d: Anzahl Filter
+- wie in \ref{subsec:modoperationen} bei conv erläutert - Dout == anzahl filter
+- conv\_ops.cc
+- Da keine Filteranzahl mit 1, 3 oder xxx gefunden wurde, und leider keine genaue beschreibung vorhanden ist, wie die Grafik zustande kommt, ist davon auszugehen, dass ein separates programm verwendet wurde (diese Hypothese wird gestützt durch fehlendes loggen der anzahl dimensionen im modifizierten tf quellcode)
+- Anzahl Filter ist Hyperparameter
+- K == Anzahl der Filter == Output-Dimension3 (Breite und Höhe durch stride definiert)
+
+
+% ggf. dieses kapitel in obiges einbauen
+\subsection{Metriken}
 \label{subsec:metriken}
 Mögliche weitere Metriken wie in Kapitel 7 von \cite{deepmon2017} beschrieben ggf. verwenden
 \begin{itemize}
@@ -29,12 +65,32 @@ Metrik RAM (Memory Space):
 	+ nicht straight forward, da von Trepn Profiler RAM des kompletten Systems gemessen wird
 	+ daher System im Ruhezustand profilen (inkl. laufender Trepn app) und (durchschnittlichen) RAM ermitteln und vom später gemessenen abziehen
 
+
+\subsection{Anpassungen von TensorFlow}
+\label{subsec:anpassungentf}
++ Link zu meinem Repo
++ Die Trepn Profiler "out-of-the-box" aber die logausgaben müssen aufbereitet werden, da die vorhandenen logausgaben unzureichend sind
++ adb logging
+da nur "ein Stream" verfügbar - alles mit adb logcat TF\_ANDROID\_LOG in eine CSV-Datei
+Format: <Feld1>|<Feld n>|...
+Dabei ist Feld1 der Index, um was für eine Operation es sich handelt (da von classify sowohl conv2d als auch matmul ausgeführt wird)
+Für matmul:
++ die matrizengröße
+Für conv2d:
++ anzahl filter (== outdepth)
++ stride		]
++ padding		- Berechnung der Anzahl der matmul operationen -> hat einfluss auf ausführungszeit? ggf. mit unfolding doch verbesserbar? (für Ausblick dann)
++ filtergröße	]
++ inputgröße	]
+
+
 \subsection{Aufbau des Experiments}
 \label{subsec:aufbauexperiment}
 + Software
 	+ Mit was werden die Daten erzeugt?
 		- trepn profiler (app) -> Einstellungen definieren und speichern!
 		- log ausgaben (direkt von tensorflow demo) -> siehe \ref{subsec:anpassungentf}
+		- über android system -> adb dumpsys xxx
 + Hardware
 	+ ggf. abbildung?
 Beschreibung des Experiment-Aufbaus
@@ -42,22 +98,6 @@ Beschreibung des Experiment-Aufbaus
 	\item{Wahl der Android-Geräte (Samsung J5 und ggf. weitere), deren Android-Version und Hardware)}
 	\item{Wie werden die gewählten Metriken gemessen?}
 \end{itemize}
-
-\subsection{Anpassungen von TensorFlow}
-\label{subsec:anpassungentf}
-+ Die Trepn Profiler "out-of-the-box" aber die logausgaben müssen aufbereitet werden, da die vorhandenen logausgaben unzureichend sind
-+ adb logging
-	da nur "ein Stream" verfügbar - alles mit adb logcat TF\_ANDROID\_LOG in eine CSV-Datei
-	Format: <Feld1>|<Feld n>|...
-	Dabei ist Feld1 der Index, um was für eine Operation es sich handelt (da von classify sowohl conv2d als auch matmul ausgeführt wird)
-	Für matmul:
-		+ die matrizengröße
-	Für conv2d:
-		+ anzahl filter (== outdepth)
-		+ stride		]
-		+ padding		- Berechnung der Anzahl der matmul operationen -> hat einfluss auf ausführungszeit? ggf. mit unfolding doch verbesserbar? (für Ausblick dann)
-		+ filtergröße	]
-		+ inputgröße	]
 		
 
 \subsection{Durchführung}

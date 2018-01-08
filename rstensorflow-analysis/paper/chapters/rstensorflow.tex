@@ -1,21 +1,23 @@
 \section{RSTensorFlow}
 \label{sec:rstensorflow}
-+ was ist rstensorflow?
-	+ tensorflow, modifiziert, damit renderscript für rechenintensive operationen verwendet wird
-+ wie wird es installiert?
-+ was wird installiert? 3 Apps, kurz erklären... relevant nur die classify app, überleitung zu den operationen (wobei anpassung am kernel == alle apps von betroffen?)
+Bei \textit{RSTensorFlow} handelt es sich um eine modifizierte Variante von \textit{TensorFlow}. Es wurde der Kernel von TensorFlow angepasst, sodass dieses Tool über \textit{RenderScript} die heterogenen Rechenressourcen von Android-Geräten nutzen kann. Das zu RSTensorFlow veröffentlichte Paper \cite{rstensorflow2017} beschreibt unter anderem diverse Experimente, welche die angepasste Version RSTensorFlow mit dem Original hinsichtlich der Performance vergleichen. 
 
-\subsection{Grobe Architektur}
-\label{subsec:architektur}
-+ welche files (.cc, .h, .java etc) sind relevant (also wo wurden anpassungen für rstensorflow umgesetzt?)
-+ diagramme
+\subsection{Android-Demo}
+\label{subsec:androiddemo}
+Für Android stellt TensorFlow bereits ein Android Package Kit (APK) zur Verfügung. Diese APK kann über die Homepage von TensorFlow \cite{tensorflow} als Prebuild bezogen werden. Da sowohl in \cite{rstensorflow2017} als auch im Rahmen dieser Arbeit Anpassungen an Tensorflow vorgenommen werden, wird die APK jedoch selbst kompiliert. Der Build-Prozess für die Demo-Apps wird in \ref{subsec:buildprozess} näher erläutert. Die APK kann dann über das Android Debug Bridge (ADB) Tool auf dem Zielsystem installiert werden. 
+\\
+Die Demo-APK enthält in der verwendeten Version drei Apps, welche auf dem Zielgerät installiert werden. Alle drei Apps verwenden die Kamera des Smartphones und führen verschiedene Deep Learning Anwendungen auf Basis der aufgenommenen Bilder aus. Die App \textit{TF Stylize} kennt mehrere Kunststile von verschiedenen Künstlern und passt das Kamerabild entsprechend des ausgewählten Stils an. \textit{TF Detect} hingegen verwendet die TensorFlow Object Detection API zur Erkennung von Objekten im Bild aus 80 verschiedenen Kategorien in Echtzeit. Für diese Arbeit ist jedoch nur die \textit{TF Classify} App relevant. Diese verwendet das Google Inception Model \cite{googleinception}, um die Gegenstände im Bild zu klassifizieren und die besten drei Ergebnisse anzuzeigen. 
+Seit dem Release 1.4 von TensorFlow, welcher dem Branch \textit{r1.4} des GitHub-Repositories \cite{tensorflowgithub} entspricht, enthält die Demo-APK eine vierte App zur Spracherkennung. \textit{TF Speech} nutzt ein einfaches Speech Recognition Model und zeigt erkannte Wörter in der App an.
 
-%ggf dieses kapitel streichen	
 \subsection{Modifizierte Operationen}
 \label{subsec:modoperationen}
-+ Welche Operationen wurden damit implementiert? Jeweils kurz erklären, was diese Operation macht
-	+ matmul 
-	+ conv2d
-		- \url{http://cs231n.github.io/convolutional-networks/}
+Das Ziel in \cite{rstensorflow2017} war es die zeitaufwendigsten Deep Learning Operationen zu optimieren. Hierfür wurden zunächst die prozentualen Anteile jedes Operationstyps während des Vorwärtspasses durch das verwendete Inception Model ermittelt. Mit ca. 75\% haben die Convolution-Operationen (Conv2D) den größten Anteil an der Berechnungszeit im Vorwärtspass. Die Matrixmultiplikationen (matmul) sind mit ca. 7\% auf dem zweiten Platz. Für diese beiden rechenintensiven Deep Learning Operationen wurde in \cite{rstensorflow2017} versucht eine Performance-Steigerung durch die Verwendung von RenderScript zu erzielen. 
+\\
+Beide Operationen sind im Deep Learning Bereich von großer Bedeutung. Bei der Operation matmul wird eine einfache Multiplikation zweier Matrizen der Form
+\begin{center}
+	$R^{l \times m} \times R^{m \times n} \rightarrow R^{l \times n}$
+\end{center}
+durchgeführt. Die Convolution-Operation bei Deep Learning Modellen verwendet Tensoren. Ein Tensor wird in TensorFlow durch ein multidimensionales Array dargestellt. Bei Bildern werden häufig Tensoren $T_{E}$ der Form $Width_{E} \times Height_{E} \times Depth_{E}$, und damit einer Dimension $D_{E} = 3$, als Eingabe für die Convolution-Operation verwendet. Ein weiterer Tensor $T_{F}$ wird als Filter auf $T_{E}$ angewendet, sodass ein Ausgabe-Tensor $T_{A}$ mit reduzierten Dimensionen entsteht. Hierfür wird $T_{F}$ in gleichmäßigen Intervallen, dem sogenannten Stride $S$, entlang der Breite und Höhe von $T_{E}$ geschoben. In jedem Schritt wird das Skalarprodukt von $T_{F}$ und dem Ausschnitt aus $T_{E}$ gebildet. Die Produkte jeder Ebene in der Tiefe werden dann aufsummiert und das Ergebnis an die jeweilige Position in $T_{A}$ gesetzt. Damit wird die Form von $T_{A}$ durch die Form von $T_{E}$, $T_{F}$ und diversen weiteren Hyperparametern, wie dem Stride $S$ oder die Anzahl der Filter $N$, bestimmt. Die Unterlagen zu der Vorlesung \textit{CS231n: Convolutional Neural Networks for Visual Recognition} der Stanford University \cite{stanford-conv} gewähren einen tieferen Einblick in die Conv2D-Operation und Convolutional Neural Networks (CNN) im Allgemeinen. \\
+Die Convolution-Operation, welche bei Deep Learning Modellen verwendet wird, ist somit nicht mit der Faltung aus der Funktionalanalysis zu verwechseln. 
 
 

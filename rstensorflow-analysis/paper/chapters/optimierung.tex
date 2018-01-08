@@ -1,0 +1,21 @@
+\section{Optional: Optimierung der Conv2D-Operation}
+\label{sec:optimierungconv2d}
++ unfolding ist mögliche optimierung
+	- literatur: 
+	- statt viele kleine, elementweise Operationen -> nur noch 1 große matrixmultiplikation
+		- theoretisch diskutieren (größe der matrizen)
+		- 1 große matmul, könnte die bereits bestehende matmul impl nutzen -> output matrix muss als tensor aufbereitet werden
+	- wie könnte es umgesetzt werden?
+
+\begin{itemize}
+	\item{Kurze Beschreibung der Convolution-Operation (wie in \cite{stanford-CS231n})}
+	\item{Ist-Analyse des Quellcodes der Conv2D-Operation}
+	\item{Unfolding (\cite{conv2d-optimizing-unfolding}) als mögliche Optimierung von Conv2D für RSTensorFlow}
+	%\begin{figure}[!t]
+	%	\centering
+	%	\includegraphics[width=3.0in]{simple-corr-model.png}
+	%	\caption{A very simple model to describe the correlation between agile and safety. }
+	%	\label{fig:simple-corr-model}
+	%\end{figure}
+	\item{Implementierung der (möglichen) Optimierung}
+\end{itemize}

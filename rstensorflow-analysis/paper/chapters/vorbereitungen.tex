@@ -1,25 +1,50 @@
 \section{Vorbereitungen}
 \label{sec:vorbereitungen}
+In \cite{rstensorflow2017} wurden die durchgeführten Experimente wurden eigene Tests 
+
+
+Für die Rekonstruktion wird zunächst analyse inkl. build prozess dann rek. experiment
+
+Bei TensorFlow handelt es sich um ein umfangreiches und komplexes Projekt, weshalb eigene Anpassungen ein gutes Verständnis dieses Deep Learning Framworks erfordern. 
+
+Bei TensorFlow handelt es sich um ein umfangreiches und komplexes Projekt, weshalb eigene Anpassungen ein gutes Verständnis dieses Deep Learning Framworks erfordern. Daher wird zunächst eine Analyse des Quellcodes im Hinblick auf die von RSTensorFlow vorgenommenen Anpassungen in \ref{subsec:quellcodeanalyse} untersucht. 
+\\
+
 + versucht die prebuilds von rstensorflow (welche auf der homepage/github bereit gestellt sind) zu verwenden
 	- für bestmögliche vergleichbarkeit bzw rekonstruktion der experimente
 	- lediglich die eigen-prebuild (ohne rs) ist nutzbar
 	- die rs-prebuild schmiert ab
-		+ nach längerer suche, konnte festgestellt werden, dass eine .so nicht geladen werden konnte
-		+ es handelt sich dabei um die .so, welche im rahmen des rstf projekts umgesetzt wurde
-		+ daher ist das eigenständige kompilieren von rstensorflow bzw. der android demo nötig was in \ref{subsec:buildprozess} dargestellt wird
-		+ optional: dies wird gleichzeitig als vorbereitung für die optimierung der conv2d betrachtet
-		
++ nach längerer suche, konnte festgestellt werden, dass eine .so nicht geladen werden konnte
++ es handelt sich dabei um die .so, welche im rahmen des rstf projekts umgesetzt wurde
++ daher ist das eigenständige kompilieren von rstensorflow bzw. der android demo nötig was in \ref{subsec:buildprozess} dargestellt wird
++ optional: dies wird gleichzeitig als vorbereitung für die optimierung der conv2d betrachtet
+
+
+
+\subsection{Analyse des Quellcodes}
+\label{subsec:quellcodeanalyse}
++ welche files (.cc, .h, .java etc) sind relevant (also wo wurden anpassungen für rstensorflow umgesetzt?)
++ diagramme		
++ App-Struktur erklären 
+	1 App wird in Java geschrieben und ververwendet einen NDKHelper, welcher jni nutzt
+	2 In der libtensorflow\_inference.so ist:
+		1 NDK in jni enthalten gibt aufruf weiter an 2
+		2 Tensorflow in c++ gibt aufruf weiter an 3 
+		3 RSWrapper in c++ gibt aufruf weiter an 4
+		4 Renderscript welche wieder auf zugreift auf 3
+	3 RSRuntime in .so 
++ das rstf projekt bietet auf der homepage die libtensorflowInference.so an - mit und ohne rs
+	- für anpassungen muss allerdings selbst die libtensorflowInference.so kompiliert werden
++ RSRuntime so's durch extra projekt kompilierbar
+	- librs.mScriptConv.so usw 
+	
+
++ umfangreiche log-Ausgaben fehlen -> daher muss quellcode angepasst und gebaut werden, das bauen in \ref{subsec:buildprozess}
 
 \subsection{Der Build-Prozess}
 \label{subsec:buildprozess}
 + tools - bazel, android sdk, ndk
-
-\subsection{Rekonstruktion der Experimente}
-\label{subsec:rekonstruktion}
-+ code analyse
-+ grafiken für matmul und conv2d - wie kommen die auf die jeweiligen werte der x-Achse?
-	+ conv2d: Anzahl Filter
-		- conv\_ops.cc
-		- Da keine Filteranzahl mit 1, 3 oder xxx gefunden wurde, und leider keine genaue beschreibung vorhanden ist, wie die Grafik zustande kommt, ist davon auszugehen, dass ein separates programm verwendet wurde (diese Hypothese wird gestützt durch fehlendes loggen der anzahl dimensionen im modifizierten tf quellcode)
-		- Anzahl Filter ist Hyperparameter
-		- K == Anzahl der Filter == Output-Dimension3 (Breite und Höhe durch stride definiert)
++ Bild mit build-struktur (siehe präsentation von 07.12.)
++ RSRuntime so's werden nur eingebunden, nicht kompiliert
+	- hier fehlt die librs.mScriptConv.so -> musste selbst kompiliert und eingebunden werden
++ nachdem technische aspekte geklärt sind, wird versucht die experimente aus \cite{rstensorflow2017} in \ref{subsec:rekonstruktion} zu rekonstruieren 
