@@ -1,0 +1,7 @@
+System Statistics:
+Sensor Id,Name,Type,Average
+328,"Memory Usage",Memory Usage [KB],1364131.6015429997
+400,"GPU Frequency",GPU Frequency [KHz],305520.7624234173
+401,"GPU Load",GPU Load [%],19.9310188336737
+600,"CPU Load",CPU Load [%],91.54980712502837
+601,"CPU Load (Normalized)",CPU Load [%],80.61266167460857

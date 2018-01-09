@@ -1,0 +1,6 @@
+System Statistics:
+Sensor Id,Name,Type,Average
+328,"Memory Usage",Memory Usage [KB],3481791.5991348233
+600,"CPU Load",CPU Load [%],51.843787551069454
+601,"CPU Load (Normalized)",CPU Load [%],32.29584234559
+1000,"CPU1 Frequency",CPU Frequency [kHz],1480500.3604902667

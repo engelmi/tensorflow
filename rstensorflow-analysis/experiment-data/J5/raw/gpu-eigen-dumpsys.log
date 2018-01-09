@@ -1,0 +1,2186 @@
+Applications Graphics Acceleration Info:
+Uptime: 289463753 Realtime: 938650047
+
+** Graphics info for pid 15042 [org.tensorflow.demo] **
+
+Stats since: 288284630372588ns
+Total frames rendered: 6517
+Janky frames: 1993 (30.58%)
+90th percentile: 36ms
+95th percentile: 46ms
+99th percentile: 65ms
+Number Missed Vsync: 114
+Number High input latency: 0
+Number Slow UI thread: 399
+Number Slow bitmap uploads: 26
+Number Slow issue draw commands: 1556
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache                0 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+    Layer size 720x880; isTextureLayer()=1; texid=1 fbo=0; refs=1
+  Layers total    2534400 (numLayers = 1)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                  0 /   131072
+  FontRenderer 0 A8           0 /        0
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total        0 /        0
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  2534400 bytes, 2.42 MB
+
+Profile data in ms:
+
+	org.tensorflow.demo/org.tensorflow.demo.ClassifierActivity/android.view.ViewRootImpl@e897146 (visibility=0)
+	Draw	Prepare	Process	Execute
+	1.88	0.10	4.37	0.87
+	2.01	0.16	14.15	0.97
+	0.97	0.13	13.94	15.75
+	0.81	0.23	9.04	1.02
+	0.93	0.11	5.16	1.11
+	0.75	0.12	4.70	0.96
+	3.06	0.19	7.07	2.11
+	3.24	0.11	9.62	4.61
+	7.00	0.11	4.48	2.09
+	0.80	0.10	4.03	11.29
+	1.22	0.11	4.76	1.50
+	7.06	0.23	3.73	3.57
+	1.17	0.09	4.34	0.93
+	5.96	0.11	7.09	1.21
+	2.17	0.18	4.29	1.40
+	1.02	0.12	4.09	1.14
+	0.75	0.09	4.38	4.96
+	0.98	0.09	3.53	0.94
+	1.15	0.10	5.39	4.29
+	8.44	0.09	4.36	5.32
+	0.79	0.12	4.60	1.21
+	1.28	0.12	8.11	1.22
+	0.81	0.15	9.22	1.09
+	4.96	0.15	10.20	1.58
+	1.42	0.11	8.75	3.40
+	1.12	0.09	4.34	1.23
+	2.25	0.11	4.27	1.04
+	1.77	0.15	9.98	1.09
+	0.87	0.22	50.00	5.14
+	0.66	0.10	5.32	1.74
+	4.01	0.10	14.97	1.48
+	17.50	0.10	16.41	1.09
+	1.53	0.09	5.42	17.76
+	0.79	0.17	11.61	10.18
+	5.25	0.10	4.23	1.29
+	1.65	0.15	39.61	1.06
+	8.09	0.10	35.45	1.06
+	11.34	0.09	34.89	1.09
+	1.10	0.10	7.77	1.01
+	1.21	0.08	7.40	1.38
+	0.92	0.09	4.66	1.81
+	0.69	0.16	5.56	1.23
+	14.49	0.11	7.35	10.78
+	0.98	0.10	15.17	6.76
+	1.26	0.25	6.39	1.44
+	11.72	0.10	18.53	3.36
+	6.86	0.14	5.75	1.10
+	0.90	0.09	50.00	2.22
+	1.37	0.10	4.00	2.15
+	0.86	0.09	4.03	1.20
+	0.72	0.09	4.04	5.96
+	1.61	0.13	6.69	5.80
+	14.37	0.10	3.99	4.60
+	2.02	0.10	8.72	1.45
+	0.98	0.09	7.31	1.12
+	4.01	0.13	5.55	0.91
+	0.85	0.09	4.18	1.95
+	7.95	0.12	16.24	45.98
+	2.27	0.10	8.43	0.99
+	7.83	0.09	6.98	1.85
+	2.40	0.10	24.17	1.10
+	0.75	0.11	8.81	1.47
+	0.88	0.12	5.00	1.35
+	17.51	0.11	9.06	10.01
+	0.78	0.13	5.05	4.65
+	1.13	0.11	5.80	1.69
+	10.59	0.10	19.47	8.52
+	5.88	0.13	4.01	7.35
+	0.90	0.23	41.86	2.08
+	2.50	0.10	4.99	1.14
+	1.17	0.17	4.97	1.27
+	1.49	0.10	25.72	9.42
+	3.67	0.09	5.85	1.06
+	2.62	0.10	5.76	0.94
+	1.21	0.09	16.44	0.88
+	1.06	0.12	11.69	1.42
+	0.68	0.09	4.06	0.92
+	4.57	0.14	19.16	1.04
+	3.64	0.21	9.66	3.81
+	4.88	0.10	29.52	50.00
+	1.44	0.10	4.15	1.58
+	0.79	0.13	4.11	2.08
+	4.44	0.09	6.95	1.18
+	1.08	0.17	10.97	1.53
+	3.14	0.11	13.70	1.44
+	2.26	0.09	3.90	0.92
+	1.04	0.12	8.17	1.11
+	1.93	0.12	5.42	1.03
+	2.11	0.52	7.91	1.10
+	1.78	0.67	10.28	0.87
+	1.29	0.09	4.18	3.02
+	2.16	0.11	14.17	1.27
+	0.72	0.11	5.24	0.85
+	1.16	0.10	3.98	9.86
+	0.78	0.08	4.07	1.68
+	11.01	0.22	28.55	1.22
+	1.13	0.10	14.29	7.34
+	13.56	0.09	11.23	1.56
+	2.07	0.11	4.54	1.08
+	0.85	0.11	4.40	44.23
+	4.77	0.14	37.11	1.30
+	6.32	0.11	8.03	1.81
+	0.95	0.13	8.29	1.65
+	0.95	0.09	5.30	1.27
+	2.37	0.08	7.11	1.22
+	0.90	0.09	8.66	3.39
+	1.11	0.10	6.38	2.57
+	1.00	0.10	4.02	1.52
+	5.15	0.11	4.08	0.95
+	5.91	0.19	7.78	1.13
+	17.85	0.09	20.01	1.82
+	7.40	0.28	12.42	0.95
+	4.44	0.12	10.36	1.45
+	5.37	0.14	6.13	2.95
+	1.27	0.10	7.63	3.78
+	0.77	0.09	4.03	4.72
+	13.64	0.10	3.93	1.40
+	4.21	0.15	7.42	2.36
+	1.28	0.11	5.43	2.54
+	1.55	0.10	4.57	1.35
+
+Stats since: 288284630372588ns
+Total frames rendered: 6517
+Janky frames: 1993 (30.58%)
+90th percentile: 36ms
+95th percentile: 46ms
+99th percentile: 65ms
+Number Missed Vsync: 114
+Number High input latency: 0
+Number Slow UI thread: 399
+Number Slow bitmap uploads: 26
+Number Slow issue draw commands: 1556
+
+View hierarchy:
+
+  org.tensorflow.demo/org.tensorflow.demo.ClassifierActivity/android.view.ViewRootImpl@e897146
+  9 views, 8,73 kB of display lists
+
+
+Total ViewRootImpl: 1
+Total Views:        9
+Total DisplayList:  8,73 kB
+
+
+** Graphics info for pid 2763 [com.sec.android.app.launcher] **
+
+Stats since: 28416328269ns
+Total frames rendered: 30702
+Janky frames: 5886 (19.17%)
+90th percentile: 29ms
+95th percentile: 42ms
+99th percentile: 89ms
+Number Missed Vsync: 1768
+Number High input latency: 37
+Number Slow UI thread: 2745
+Number Slow bitmap uploads: 703
+Number Slow issue draw commands: 2903
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache          1109760 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache    154000 /  2097152
+  PatchCache               1728 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  1789776 bytes, 1.71 MB
+
+Profile data in ms:
+
+	com.sec.android.app.launcher/com.sec.android.app.launcher.activities.LauncherActivity/android.view.ViewRootImpl@7585be7 (visibility=8)
+	Draw	Prepare	Process	Execute
+	12.83	1.34	1.76	4.22
+	5.28	0.20	5.28	2.95
+	7.38	1.73	5.91	11.63
+	5.80	0.34	3.85	1.47
+	1.34	0.15	2.75	1.33
+	50.00	10.14	12.26	0.92
+	12.45	0.38	2.32	14.93
+	5.74	1.59	2.09	9.40
+	6.48	1.82	1.70	9.61
+	1.37	0.81	1.85	10.26
+	2.32	1.05	4.48	8.25
+	1.12	0.82	1.97	12.04
+	2.20	0.63	2.60	9.89
+	1.76	0.81	2.04	10.73
+	1.68	0.67	2.05	10.56
+	2.85	0.59	2.28	9.35
+	2.94	0.59	2.05	9.61
+	2.64	0.61	2.05	9.77
+	2.97	0.61	2.24	9.11
+	3.34	1.22	4.50	5.76
+	1.84	1.03	4.09	5.14
+	3.30	0.78	4.11	3.76
+	3.51	0.76	5.32	2.62
+	2.12	1.38	5.32	3.60
+	3.06	0.87	5.30	2.75
+	1.61	1.46	5.60	4.38
+	1.50	1.59	5.14	4.52
+	1.35	1.11	5.40	4.47
+	4.00	1.23	7.75	0.87
+	50.00	2.73	4.88	2.44
+	0.54	0.26	4.75	1.06
+	0.74	0.24	7.70	1.02
+	15.77	2.39	1.85	2.31
+	16.73	0.15	4.62	0.74
+	1.26	0.15	4.04	0.84
+	3.97	0.15	2.97	0.57
+	43.41	5.71	12.32	0.59
+	2.84	0.55	5.70	26.22
+	1.60	0.39	5.41	7.45
+	12.72	0.80	2.64	14.42
+	2.85	0.57	2.03	0.66
+	8.68	0.55	3.09	0.77
+	6.86	0.66	2.82	1.08
+	1.60	0.52	2.81	3.07
+	1.11	1.79	2.16	2.76
+	1.56	0.52	2.62	3.44
+	1.53	0.91	5.67	1.18
+	1.81	0.89	8.78	1.66
+	3.12	1.32	5.02	0.86
+	2.11	0.41	5.10	1.04
+	1.89	0.40	3.74	2.05
+	1.33	0.38	3.86	2.37
+	1.75	0.70	6.30	0.71
+	1.20	0.54	8.80	0.80
+	2.53	0.72	4.88	2.91
+	1.05	0.42	7.86	1.03
+	2.93	0.46	4.75	0.74
+	2.66	0.80	6.11	1.45
+	50.00	4.61	7.63	1.88
+	0.46	0.24	5.13	5.03
+	0.38	0.28	5.38	0.75
+	38.76	2.29	2.08	2.32
+	50.00	0.16	10.27	1.20
+	0.75	0.18	4.06	0.57
+	46.66	19.82	15.24	0.72
+	25.11	0.35	5.34	22.41
+	2.54	0.37	2.17	10.46
+	13.05	0.57	2.69	10.98
+	5.06	1.81	3.80	1.86
+	6.13	0.93	5.21	4.80
+	2.06	0.69	3.12	12.93
+	2.11	0.93	2.41	12.91
+	2.06	0.49	1.79	15.02
+	6.05	1.27	4.04	10.63
+	4.84	1.33	3.41	13.47
+	2.47	1.43	3.52	11.56
+	10.54	1.80	3.44	8.12
+	2.13	0.49	3.47	14.10
+	1.87	0.68	5.52	10.22
+	2.34	0.58	4.10	12.46
+	2.18	1.50	5.76	8.38
+	0.98	0.70	4.96	11.28
+	5.59	0.77	4.62	12.33
+	1.76	0.60	4.70	10.52
+	1.87	0.87	6.23	12.02
+	5.88	1.26	16.40	5.80
+	50.00	2.82	5.47	1.11
+	0.85	0.76	4.93	0.84
+	0.68	0.22	5.14	1.01
+
+Stats since: 28416328269ns
+Total frames rendered: 30702
+Janky frames: 5886 (19.17%)
+90th percentile: 29ms
+95th percentile: 42ms
+99th percentile: 89ms
+Number Missed Vsync: 1768
+Number High input latency: 37
+Number Slow UI thread: 2745
+Number Slow bitmap uploads: 703
+Number Slow issue draw commands: 2903
+
+View hierarchy:
+
+  com.sec.android.app.launcher/com.sec.android.app.launcher.activities.LauncherActivity/android.view.ViewRootImpl@7585be7
+  423 views, 376,67 kB of display lists
+
+
+Total ViewRootImpl: 1
+Total Views:        423
+Total DisplayList:  376,67 kB
+
+
+** Graphics info for pid 2438 [com.android.systemui.recents] **
+
+Stats since: 203253476222ns
+Total frames rendered: 40347
+Janky frames: 7638 (18.93%)
+90th percentile: 26ms
+95th percentile: 34ms
+99th percentile: 73ms
+Number Missed Vsync: 1295
+Number High input latency: 12
+Number Slow UI thread: 2286
+Number Slow bitmap uploads: 769
+Number Slow issue draw commands: 5631
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache                0 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                  0 /   131072
+  FontRenderer 0 A8           0 /        0
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total        0 /        0
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  0 bytes, 0.00 MB
+
+Profile data in ms:
+
+	com.android.systemui/com.android.systemui.recents.SeparatedRecentsActivity/android.view.ViewRootImpl@b7d1c28 (visibility=8)
+	Draw	Prepare	Process	Execute
+	2.04	0.46	3.72	0.61
+	2.02	0.11	6.49	0.62
+	0.98	0.12	5.38	0.58
+	2.51	0.19	6.00	0.60
+	1.97	0.11	4.13	0.61
+	3.18	0.18	4.15	0.61
+	2.34	0.23	4.29	0.85
+	0.84	0.11	5.14	0.61
+	0.78	0.12	4.79	0.63
+	4.03	0.32	8.04	0.61
+	1.87	0.11	4.44	0.63
+	3.50	0.10	4.22	0.66
+	2.37	0.11	4.24	0.65
+	1.71	0.10	4.20	0.64
+	1.72	0.11	4.25	0.65
+	1.33	0.20	4.23	0.66
+	0.90	0.21	4.12	0.64
+	0.83	0.39	4.17	0.64
+	0.76	0.35	4.09	0.97
+	1.02	0.21	4.13	0.76
+	18.36	2.68	3.91	1.20
+	26.26	0.10	5.01	1.88
+	1.12	0.10	4.23	3.00
+	1.36	0.10	2.80	1.52
+	1.84	0.09	2.36	0.97
+	1.00	0.10	2.53	0.99
+	1.49	0.10	2.12	1.10
+	1.12	0.10	2.07	0.98
+	0.98	0.09	1.21	2.65
+	2.32	0.10	1.17	1.87
+	3.80	0.11	1.33	2.11
+	2.40	0.09	0.90	2.08
+	6.50	0.09	1.07	1.64
+	1.83	0.08	0.87	1.64
+	3.04	0.18	1.19	1.66
+	2.20	0.09	0.87	1.73
+	1.65	0.09	0.87	1.60
+	2.19	0.09	0.85	1.87
+	1.91	0.08	0.85	1.78
+	2.33	0.06	0.84	1.60
+	50.00	7.85	50.00	2.29
+	50.00	2.36	26.58	0.72
+	3.23	0.23	4.44	0.56
+	0.94	0.41	12.90	0.73
+	1.23	0.19	6.15	2.55
+	3.33	0.26	11.60	1.96
+	1.79	0.25	6.05	0.95
+	1.55	0.19	5.28	1.17
+	3.69	0.16	5.65	0.66
+	0.90	0.83	5.92	0.98
+	4.06	0.16	5.29	0.76
+	1.34	0.23	5.51	0.99
+	1.53	0.20	9.82	0.62
+	3.37	0.48	5.67	0.72
+	3.90	0.98	4.69	0.73
+	1.53	0.26	7.68	0.94
+	1.94	0.18	6.34	0.67
+	7.10	0.46	6.64	1.54
+	2.36	0.23	7.41	1.06
+	2.93	0.17	6.46	0.66
+	3.78	0.20	6.99	0.78
+	2.47	0.18	8.76	0.84
+	3.68	0.17	6.78	0.69
+	1.46	0.28	11.19	1.46
+	2.02	1.76	7.74	0.66
+	2.28	0.19	8.16	3.10
+	1.54	0.79	10.24	0.52
+	1.50	0.35	7.26	1.38
+	1.35	0.22	9.90	1.02
+	1.24	0.16	18.12	2.97
+	1.10	0.21	9.17	0.66
+	1.36	0.96	9.03	0.75
+	1.95	0.47	8.35	0.71
+	2.17	0.43	7.68	0.96
+	3.63	0.49	6.10	0.65
+	3.11	2.62	6.88	0.66
+	3.82	0.65	10.07	0.44
+	1.42	0.40	6.71	0.70
+	1.53	0.39	9.99	0.80
+	2.19	0.34	6.32	0.50
+	1.58	0.38	6.68	0.50
+	2.96	1.27	8.02	0.55
+	1.95	0.38	8.09	1.21
+	15.21	0.34	9.27	0.67
+	0.82	0.15	6.57	0.50
+	0.89	0.45	6.00	0.69
+	5.21	2.03	4.72	0.54
+	4.25	0.54	4.84	0.46
+	1.22	0.66	7.27	0.62
+	3.84	0.37	5.13	1.08
+	1.47	0.39	6.83	0.66
+	1.46	0.78	4.83	1.33
+	1.18	0.49	4.58	2.35
+	1.11	0.72	4.96	1.70
+	1.77	0.57	8.96	0.72
+	2.58	0.53	6.07	25.27
+	2.43	0.40	5.34	2.06
+	4.60	0.12	5.17	7.34
+	4.23	0.48	5.44	11.27
+	5.91	0.67	8.38	7.49
+	20.54	0.48	12.71	5.57
+	2.32	0.68	8.96	1.21
+	1.33	1.16	4.66	11.26
+	1.74	3.75	4.34	15.80
+	1.10	0.46	3.94	14.11
+	1.17	0.52	4.64	26.59
+	1.10	0.46	6.23	12.68
+	11.32	0.41	4.94	21.50
+	15.75	0.73	3.80	5.59
+	34.21	0.58	5.07	0.96
+	18.87	0.21	3.59	11.81
+	1.57	0.40	3.47	11.13
+	4.96	0.33	8.32	8.25
+	5.64	0.49	4.13	11.98
+	1.53	0.43	3.96	11.60
+	2.62	0.65	4.27	11.83
+	2.13	0.36	6.57	12.01
+	1.29	0.47	4.20	9.28
+	1.90	0.38	4.16	12.81
+	3.89	0.35	3.58	12.13
+
+Stats since: 203253476222ns
+Total frames rendered: 40347
+Janky frames: 7638 (18.93%)
+90th percentile: 26ms
+95th percentile: 34ms
+99th percentile: 73ms
+Number Missed Vsync: 1295
+Number High input latency: 12
+Number Slow UI thread: 2286
+Number Slow bitmap uploads: 769
+Number Slow issue draw commands: 5631
+
+View hierarchy:
+
+  com.android.systemui/com.android.systemui.recents.SeparatedRecentsActivity/android.view.ViewRootImpl@b7d1c28
+  31 views, 25,61 kB of display lists
+
+
+Total ViewRootImpl: 1
+Total Views:        31
+Total DisplayList:  25,61 kB
+
+
+** Graphics info for pid 13727 [com.quicinc.trepn] **
+
+Stats since: 287178421417385ns
+Total frames rendered: 50176
+Janky frames: 39285 (78.29%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37202
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8429
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache          2351300 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                1666 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                  0 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  2877254 bytes, 2.74 MB
+
+Profile data in ms:
+
+	com.quicinc.trepn/com.quicinc.trepn.userinterface.main.TrepnActivity/android.view.ViewRootImpl@ee3fb5d (visibility=8)
+	Draw	Prepare	Process	Execute
+	50.00	0.35	5.10	6.37
+	23.43	0.23	6.94	0.82
+	1.25	0.28	12.58	1.46
+	3.70	0.28	8.05	1.03
+	2.67	0.31	8.39	0.88
+	2.88	0.30	8.29	1.19
+	2.77	0.29	8.05	1.26
+	2.70	0.29	8.02	1.11
+	3.05	0.28	8.35	1.03
+	2.42	0.36	8.10	1.04
+	2.64	0.30	7.93	1.01
+	2.20	0.72	8.45	0.89
+	3.66	0.30	11.13	1.47
+	2.75	0.71	8.07	1.01
+	2.35	0.30	8.07	1.03
+	2.49	0.30	7.96	1.09
+	2.59	0.29	8.01	0.86
+	2.23	0.27	7.90	0.81
+	1.18	0.57	8.49	1.00
+	0.48	0.20	9.23	1.04
+	12.79	0.28	7.99	1.08
+
+Stats since: 287178421417385ns
+Total frames rendered: 50176
+Janky frames: 39285 (78.29%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37202
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8429
+
+	/android.view.ViewRootImpl@4968cd2 (visibility=0)
+	Draw	Prepare	Process	Execute
+	8.67	0.06	0.31	2.15
+	19.58	0.07	0.51	3.45
+	19.42	0.10	0.58	3.21
+	27.27	0.05	0.36	3.41
+
+Stats since: 287178421417385ns
+Total frames rendered: 50176
+Janky frames: 39285 (78.29%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37202
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8429
+
+	com.quicinc.trepn/com.quicinc.trepn.userinterface.advanced.ProfilingActivity/android.view.ViewRootImpl@f6e21a3 (visibility=8)
+	Draw	Prepare	Process	Execute
+	28.45	2.48	6.17	5.15
+	23.68	0.68	7.25	0.56
+	6.42	0.61	10.43	0.75
+	2.81	0.36	7.93	0.99
+	2.66	0.37	10.09	0.66
+	2.67	0.37	10.10	0.69
+	2.67	0.37	10.03	0.67
+	4.80	0.37	10.04	0.73
+	2.65	0.37	10.10	0.68
+	2.70	0.37	11.86	1.00
+	3.67	0.50	14.40	1.37
+	3.67	0.51	14.95	1.06
+	8.05	0.42	11.71	4.08
+	1.39	0.31	8.08	1.32
+
+Stats since: 287178421417385ns
+Total frames rendered: 50176
+Janky frames: 39285 (78.29%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37202
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8429
+
+	/android.view.ViewRootImpl@7362ca0 (visibility=0)
+	Draw	Prepare	Process	Execute
+	45.68	0.73	4.47	3.60
+	31.90	0.72	2.90	7.02
+	19.50	0.63	10.07	0.99
+	11.63	0.89	6.66	0.98
+	6.53	11.06	6.55	1.14
+	4.07	0.93	3.07	1.10
+	5.01	0.92	11.56	1.88
+	6.46	1.04	14.50	0.95
+	50.00	0.82	6.95	4.36
+	7.86	1.06	7.07	3.81
+	27.83	1.43	3.59	1.15
+	13.91	0.66	8.75	0.74
+	8.10	0.67	13.24	1.26
+	3.71	0.58	5.17	1.04
+	4.22	0.64	3.71	1.07
+	4.00	0.67	7.94	5.84
+	48.94	0.96	4.18	1.01
+	4.78	1.00	3.68	4.13
+	20.58	1.01	5.42	1.09
+	4.41	1.08	3.77	1.02
+	9.25	12.50	50.00	1.65
+	4.83	0.70	4.88	1.39
+	7.35	0.71	11.36	1.40
+	4.16	0.88	7.28	1.09
+	30.26	0.85	50.00	0.99
+	50.00	0.67	3.52	1.70
+	13.72	1.89	4.10	1.57
+	17.16	0.91	27.02	1.17
+	41.89	0.75	10.85	0.90
+	33.42	0.89	7.41	1.35
+	4.60	0.57	3.70	1.44
+	7.43	0.70	5.36	1.03
+	10.11	0.68	3.31	1.50
+	6.17	1.16	42.49	9.26
+	5.51	1.20	9.70	1.39
+	48.14	0.81	7.53	4.57
+	37.90	0.70	3.14	1.03
+	50.00	2.63	8.39	2.42
+	12.48	0.71	3.66	3.36
+	3.62	0.65	3.29	1.61
+	48.99	1.15	8.30	1.41
+	38.37	0.90	14.45	1.42
+	5.68	0.61	3.44	1.03
+	8.45	0.83	2.86	0.83
+	22.06	1.48	5.06	5.98
+	7.59	1.10	7.32	2.98
+	5.32	0.88	4.13	2.86
+	7.61	0.68	3.18	1.85
+	5.83	1.31	10.86	2.38
+	14.12	0.86	5.19	0.90
+	3.84	0.82	6.15	2.21
+	4.30	0.73	22.34	1.48
+	12.87	0.66	24.98	0.84
+	12.86	1.10	10.24	1.18
+	3.99	0.68	5.40	2.13
+	4.10	0.89	6.14	1.78
+	21.98	11.34	2.96	29.62
+	4.34	1.68	6.25	1.26
+	22.12	0.82	36.63	1.06
+	6.80	0.63	8.78	1.67
+	10.85	0.65	32.26	2.52
+	13.07	0.63	8.50	9.54
+	6.80	1.90	5.00	1.31
+	5.78	0.77	3.32	0.88
+	4.72	0.58	2.55	0.97
+	9.11	0.63	13.00	0.86
+	4.06	10.98	13.26	2.07
+	6.90	1.05	3.59	1.16
+	7.41	1.26	13.50	1.76
+	10.91	0.69	3.37	1.91
+	19.14	1.03	3.20	1.07
+	12.20	0.94	3.24	0.97
+	21.47	0.71	3.91	1.33
+	9.25	0.88	2.84	0.78
+	3.80	0.74	26.64	8.36
+	19.13	0.65	3.37	1.14
+	6.53	1.34	5.86	0.97
+	12.99	0.61	3.41	1.33
+	4.59	1.04	4.91	4.47
+	11.66	0.96	3.83	3.73
+	15.01	0.79	4.12	0.87
+	20.46	0.64	8.06	1.34
+	5.45	0.70	7.97	1.17
+	6.78	0.87	4.27	1.07
+	4.28	0.83	31.87	2.49
+	5.86	1.06	6.36	1.85
+	11.40	1.00	5.00	1.04
+	8.76	1.24	3.39	2.20
+	22.71	0.66	14.54	7.54
+	8.05	0.94	3.47	1.20
+	4.66	1.09	5.22	2.27
+	4.33	1.30	4.91	0.92
+	4.44	1.11	8.61	2.28
+	9.10	0.89	9.61	0.84
+	7.31	1.37	8.06	0.92
+	8.15	1.16	2.99	1.03
+	6.78	0.63	7.46	24.90
+	14.65	0.67	10.26	1.53
+	14.19	0.62	2.83	0.98
+	6.16	1.14	3.40	0.94
+	29.44	0.76	6.88	1.11
+	8.94	0.66	3.41	0.93
+	10.18	0.60	3.23	0.89
+	5.51	0.94	3.84	1.01
+	4.21	0.70	8.21	1.17
+	9.96	0.94	6.62	16.84
+	9.63	0.68	4.14	2.33
+	14.88	1.11	10.11	0.95
+	4.04	1.64	8.25	0.77
+	4.84	0.60	5.34	1.87
+	4.80	0.80	5.16	1.63
+	16.80	0.68	13.30	5.18
+	4.45	0.72	7.50	1.25
+	5.10	0.63	2.87	1.00
+	13.68	0.76	14.53	1.51
+	22.04	0.67	15.92	1.53
+	8.04	1.35	8.23	1.13
+	12.87	0.72	4.34	1.14
+	4.02	0.66	3.10	1.23
+	5.53	0.67	3.15	0.92
+
+Stats since: 287178421417385ns
+Total frames rendered: 50177
+Janky frames: 39286 (78.29%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37203
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8429
+
+	/android.view.ViewRootImpl@769f059 (visibility=0)
+	Draw	Prepare	Process	Execute
+	50.00	0.70	8.42	2.78
+	50.00	0.66	7.78	1.09
+	27.80	0.68	16.37	8.53
+	22.24	0.64	10.01	2.11
+	22.16	6.92	4.85	0.77
+	12.69	0.68	4.46	1.72
+	10.60	7.58	6.41	1.07
+	13.32	0.61	12.35	1.43
+	50.00	0.73	5.71	0.94
+	21.58	0.73	3.68	9.95
+	50.00	1.05	24.37	1.17
+	22.71	0.81	3.91	1.11
+	19.92	0.69	6.66	6.40
+	10.76	0.80	12.31	2.20
+	21.29	0.68	3.60	1.04
+	35.05	1.55	4.74	3.69
+	50.00	0.93	8.33	1.25
+	15.43	0.61	9.86	1.25
+	36.23	0.97	28.40	1.62
+	19.42	0.80	8.99	10.87
+	35.24	1.33	9.90	8.25
+	13.18	0.85	11.22	1.13
+	34.23	0.70	4.62	4.73
+	12.13	0.66	4.38	1.37
+	50.00	0.66	16.27	1.11
+	50.00	0.99	14.06	3.46
+	20.54	0.88	6.07	1.09
+	50.00	0.68	3.63	0.98
+	50.00	0.71	11.41	1.13
+	46.33	0.76	4.72	1.92
+	11.94	0.89	5.78	1.38
+	14.28	0.93	12.77	1.27
+	25.10	1.15	7.27	2.29
+	50.00	0.66	3.94	5.98
+	27.62	0.79	7.42	8.99
+	50.00	8.67	11.67	1.29
+	45.77	1.22	5.05	1.08
+	50.00	1.25	11.28	15.59
+	26.61	0.71	4.15	3.84
+	8.90	0.77	3.70	11.52
+	50.00	0.71	8.63	4.19
+	50.00	1.11	10.96	0.88
+	13.04	0.69	16.13	1.12
+	26.31	0.65	13.38	3.15
+	36.28	0.75	50.00	1.37
+	31.68	0.77	11.17	1.30
+	17.93	0.69	17.83	0.82
+	15.38	0.79	50.00	1.08
+	20.32	1.18	4.09	2.08
+	27.39	0.88	4.48	1.81
+	50.00	0.87	4.61	1.45
+	46.73	0.70	3.66	0.83
+	50.00	0.93	7.66	9.44
+	19.89	0.79	4.39	1.18
+	17.88	1.13	50.00	1.74
+	15.52	0.67	5.61	0.77
+	41.00	0.80	3.83	1.20
+	16.15	1.25	9.17	4.01
+	50.00	0.69	4.44	2.25
+	23.68	4.67	12.88	2.27
+	50.00	1.05	18.65	1.60
+	49.43	1.78	5.99	1.28
+	18.42	0.87	3.83	9.48
+	12.11	0.67	4.52	1.19
+	12.33	0.96	7.44	0.94
+	14.32	1.19	6.27	5.45
+	50.00	0.84	15.70	1.19
+	22.77	1.09	6.33	4.09
+	31.95	3.90	42.18	11.26
+	16.40	1.03	4.98	1.27
+	50.00	0.74	3.85	1.15
+	26.81	1.06	11.42	0.97
+	42.61	0.95	5.02	1.24
+	16.53	0.93	7.93	1.28
+	50.00	0.75	9.36	1.12
+	50.00	0.68	7.97	2.18
+	17.24	1.85	6.10	1.38
+	50.00	2.36	6.67	1.48
+	20.87	1.29	50.00	1.57
+	20.64	0.69	39.42	9.06
+	27.81	1.33	7.46	2.59
+	30.58	0.65	4.67	0.94
+	50.00	0.72	10.66	7.51
+	14.96	0.62	3.39	0.92
+	50.00	1.00	14.27	9.10
+	19.63	1.76	9.26	1.21
+	23.05	0.64	3.54	5.51
+	47.63	0.94	11.02	3.16
+	44.72	5.99	7.03	1.74
+	20.00	0.96	4.56	4.85
+	26.55	0.70	10.87	0.97
+	11.89	0.70	5.72	8.94
+	22.52	0.67	3.74	0.87
+	20.32	0.63	3.68	6.85
+	20.34	0.91	24.75	1.27
+	19.84	1.02	5.68	5.02
+	21.65	0.69	42.57	16.76
+	29.31	0.70	6.69	1.03
+	19.60	0.68	3.59	1.06
+	14.32	0.64	5.73	2.15
+	45.35	1.38	6.53	5.69
+	15.77	0.64	22.78	1.78
+	28.60	0.69	3.75	0.98
+	13.18	0.65	5.35	27.85
+	22.29	0.66	4.18	1.00
+	30.73	1.25	50.00	1.67
+	28.83	4.07	6.82	4.77
+	20.91	0.58	3.88	1.13
+	19.13	0.68	4.52	1.40
+	17.79	0.61	4.96	1.52
+	13.17	1.60	6.41	1.05
+	32.98	0.67	3.98	1.17
+	23.09	1.09	6.37	9.41
+	14.79	2.70	3.91	1.50
+	26.01	1.55	4.70	1.76
+	50.00	1.43	5.67	0.90
+	20.42	0.83	6.70	1.11
+	45.03	0.64	3.72	1.63
+	17.55	2.37	9.64	2.97
+	21.45	1.58	4.52	0.99
+
+Stats since: 287178421417385ns
+Total frames rendered: 50178
+Janky frames: 39287 (78.30%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37204
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8430
+
+	/android.view.ViewRootImpl@d2ca41e (visibility=0)
+	Draw	Prepare	Process	Execute
+	50.00	1.57	9.70	4.29
+	50.00	0.69	20.21	12.42
+	50.00	0.66	14.52	1.53
+	29.94	0.68	4.88	1.05
+	32.99	0.86	4.04	0.88
+	50.00	0.65	16.07	4.54
+	39.09	4.99	50.00	12.01
+	28.48	0.99	7.15	0.97
+	50.00	0.70	12.60	1.80
+	36.33	0.87	41.74	1.96
+	50.00	0.73	11.21	1.62
+	33.95	1.15	4.06	0.69
+	36.08	0.67	13.19	1.37
+	21.38	1.03	4.74	3.19
+	28.88	0.87	5.27	0.88
+	49.74	1.11	13.79	0.95
+	50.00	1.11	4.47	1.05
+	22.29	0.70	4.01	1.30
+	50.00	0.88	3.78	0.90
+	42.54	0.70	4.34	4.28
+	50.00	0.69	13.13	1.16
+	21.80	0.86	13.59	0.96
+	47.14	0.68	7.08	1.07
+	29.69	0.64	12.78	1.50
+	50.00	0.71	10.35	0.93
+	50.00	1.02	4.53	1.68
+	27.96	0.68	4.37	6.74
+	50.00	0.67	3.81	1.02
+	50.00	0.66	3.60	1.06
+	50.00	1.19	4.01	0.98
+	18.93	0.87	11.51	2.13
+	20.74	0.86	6.65	1.40
+	39.37	0.71	3.82	1.40
+	50.00	0.76	8.64	1.20
+	34.22	0.91	14.16	1.11
+	50.00	0.70	7.96	7.49
+	50.00	1.58	4.15	1.09
+	50.00	14.52	6.07	1.47
+	43.43	1.39	15.60	1.06
+	24.27	1.60	5.92	1.35
+	50.00	0.99	8.64	1.07
+	50.00	0.74	6.62	1.33
+	33.25	1.15	4.30	1.28
+	50.00	0.87	5.23	1.36
+	50.00	0.86	4.94	50.00
+	50.00	0.73	4.02	0.85
+	28.29	0.83	4.12	0.78
+	50.00	0.80	3.85	0.90
+	50.00	0.76	50.00	1.23
+	37.65	0.75	9.09	1.29
+	50.00	0.69	11.93	15.58
+	50.00	0.87	50.00	1.40
+	50.00	0.73	5.03	1.43
+	34.64	1.20	11.04	1.66
+	50.00	6.13	5.30	1.28
+	26.45	0.92	15.58	5.88
+	50.00	0.66	50.00	1.20
+	23.53	1.96	10.97	1.16
+	50.00	0.69	12.51	3.62
+	47.95	0.67	9.84	1.41
+	50.00	0.83	11.96	1.14
+	50.00	0.86	6.74	5.50
+	29.89	0.83	7.18	3.96
+	20.77	0.81	4.49	1.22
+	30.42	0.63	4.73	3.03
+	31.13	0.91	19.77	1.75
+	50.00	0.90	3.72	1.04
+	42.16	0.92	10.45	1.58
+	45.26	1.09	4.82	1.02
+	24.41	0.80	5.29	2.41
+	50.00	1.03	7.35	6.29
+	47.55	1.23	8.92	0.98
+	48.88	4.16	7.32	1.80
+	25.12	0.95	4.27	1.96
+	50.00	0.83	8.16	4.27
+	50.00	0.82	3.59	0.90
+	43.73	1.80	7.59	1.08
+	50.00	0.68	7.16	1.63
+	50.00	0.93	50.00	11.82
+	25.83	0.67	4.82	2.62
+	50.00	0.90	11.66	1.32
+	36.57	0.86	3.87	1.02
+	50.00	1.19	14.72	0.86
+	30.48	0.83	7.98	1.20
+	50.00	0.70	6.47	1.83
+	38.86	1.11	3.98	0.89
+	28.53	0.68	39.28	12.96
+	50.00	0.75	3.98	1.78
+	50.00	0.68	3.67	0.90
+	42.61	5.63	9.20	1.03
+	50.00	18.71	20.10	3.18
+	22.91	0.65	24.98	22.77
+	32.94	3.46	7.88	1.90
+	31.46	1.33	10.82	1.57
+	47.08	0.63	23.41	0.74
+	31.10	1.45	9.88	3.00
+	50.00	0.70	7.07	12.81
+	48.49	0.73	18.04	3.07
+	25.43	0.66	3.70	0.96
+	25.93	0.69	3.80	0.87
+	50.00	0.68	3.73	0.95
+	27.13	0.77	50.00	1.09
+	38.63	0.65	4.04	1.87
+	40.44	0.93	46.26	1.31
+	30.43	0.71	16.85	1.04
+	50.00	0.73	19.30	5.44
+	50.00	0.78	7.17	0.98
+	36.58	1.29	7.44	3.07
+	27.93	0.86	7.89	1.13
+	28.16	0.75	50.00	1.50
+	29.97	3.87	3.73	1.51
+	50.00	0.81	4.48	1.08
+	40.29	0.73	17.75	0.95
+	38.51	0.66	4.86	1.59
+	50.00	13.42	12.29	1.42
+	50.00	0.73	3.49	1.38
+	31.81	0.65	8.27	1.26
+	50.00	0.59	6.85	1.85
+	33.69	0.76	42.82	1.01
+	32.57	1.34	7.70	2.13
+
+Stats since: 287178421417385ns
+Total frames rendered: 50178
+Janky frames: 39287 (78.30%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37204
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8430
+
+	/android.view.ViewRootImpl@33734ff (visibility=0)
+	Draw	Prepare	Process	Execute
+	50.00	0.69	35.65	6.26
+	50.00	1.69	12.45	1.42
+	50.00	0.97	10.32	1.30
+	45.20	0.76	4.75	0.80
+	45.79	0.65	3.40	0.93
+	50.00	1.16	7.33	2.23
+	50.00	0.71	35.23	1.18
+	46.88	0.90	16.16	50.00
+	50.00	0.83	15.70	3.62
+	50.00	0.72	50.00	10.24
+	50.00	1.01	15.25	1.90
+	48.08	0.67	5.29	0.86
+	47.65	0.76	4.25	1.05
+	43.71	0.86	4.31	2.44
+	34.31	0.83	4.12	0.83
+	50.00	0.68	4.22	1.18
+	50.00	0.68	3.97	1.37
+	43.06	0.70	17.21	7.40
+	50.00	0.67	4.96	2.03
+	50.00	0.72	21.48	1.82
+	50.00	0.83	11.85	3.13
+	40.70	0.79	5.69	6.50
+	50.00	1.00	4.53	0.92
+	49.85	1.12	8.33	0.89
+	50.00	0.89	50.00	6.00
+	50.00	0.69	4.02	0.85
+	37.65	0.69	4.51	0.96
+	50.00	0.70	8.01	10.09
+	50.00	0.79	3.46	0.76
+	50.00	1.12	3.85	2.19
+	30.14	0.71	6.71	0.87
+	49.34	0.93	6.85	3.05
+	48.30	0.64	5.40	1.23
+	50.00	1.10	11.20	4.44
+	50.00	0.84	7.13	41.99
+	50.00	0.95	12.62	1.04
+	50.00	0.63	50.00	3.89
+	50.00	0.73	9.41	5.07
+	50.00	0.69	4.15	1.47
+	38.57	1.03	4.84	1.67
+	50.00	0.71	10.12	1.18
+	50.00	4.31	15.99	1.19
+	46.17	0.73	7.66	2.91
+	50.00	0.72	29.02	1.07
+	50.00	0.72	11.58	17.08
+	50.00	0.71	3.99	1.02
+	46.28	0.87	7.59	6.48
+	50.00	0.70	4.06	1.24
+	50.00	0.67	3.98	3.51
+	50.00	2.14	6.09	1.91
+	50.00	6.34	4.79	1.65
+	50.00	0.72	4.42	0.87
+	50.00	0.88	5.64	1.27
+	50.00	1.29	7.08	1.13
+	50.00	0.74	3.39	0.90
+	40.71	1.02	8.06	2.00
+	50.00	0.86	4.51	1.29
+	40.87	0.79	4.47	1.22
+	50.00	1.08	9.41	1.94
+	50.00	0.80	30.12	10.04
+	50.00	0.92	20.88	13.24
+	50.00	0.94	9.07	8.09
+	44.80	2.28	9.20	0.88
+	27.96	0.99	6.64	1.30
+	38.77	1.59	10.30	3.34
+	46.54	1.18	50.00	1.57
+	50.00	0.70	3.73	0.88
+	50.00	1.01	6.55	1.01
+	50.00	0.61	4.19	1.33
+	38.93	1.03	7.50	4.05
+	50.00	0.73	10.69	4.50
+	50.00	7.31	5.36	2.20
+	50.00	0.87	4.13	1.24
+	33.39	2.06	4.24	0.88
+	50.00	0.73	4.69	0.94
+	50.00	0.69	6.65	1.79
+	50.00	0.66	3.73	1.25
+	50.00	0.75	9.22	4.66
+	50.00	0.76	3.83	1.22
+	50.00	1.06	6.22	1.03
+	50.00	0.85	10.82	2.43
+	43.40	1.94	50.00	3.72
+	50.00	1.38	8.49	3.08
+	46.20	0.71	50.00	1.59
+	50.00	2.19	10.32	1.78
+	50.00	0.67	4.14	3.73
+	50.00	0.68	6.41	2.52
+	50.00	0.73	3.98	4.44
+	50.00	0.87	5.06	1.11
+	50.00	0.80	3.80	0.83
+	50.00	0.71	9.55	0.91
+	50.00	0.64	36.27	30.29
+	41.17	0.91	14.89	1.01
+	44.45	0.99	15.41	2.01
+	50.00	0.63	13.34	0.79
+	50.00	1.07	25.05	1.30
+	50.00	0.86	11.41	1.47
+	50.00	0.67	3.54	5.08
+	31.23	0.66	10.87	1.56
+	31.20	0.65	5.72	3.22
+	50.00	1.16	7.47	1.61
+	50.00	0.71	3.77	1.05
+	44.47	0.90	3.92	5.67
+	50.00	0.93	7.97	1.43
+	50.00	0.93	40.71	1.22
+	50.00	1.10	5.80	2.60
+	50.00	0.59	16.35	1.76
+	50.00	0.90	4.05	1.12
+	35.93	1.14	6.05	0.85
+	50.00	1.18	5.84	1.22
+	50.00	0.85	8.98	1.29
+	50.00	0.66	10.28	4.58
+	50.00	0.67	50.00	2.29
+	50.00	0.69	3.93	1.18
+	50.00	0.68	10.53	2.16
+	50.00	0.71	3.91	1.18
+	40.57	1.09	12.94	2.63
+	50.00	1.28	8.23	2.32
+	50.00	0.66	8.92	1.22
+	42.86	0.96	13.14	1.37
+
+Stats since: 287178421417385ns
+Total frames rendered: 50178
+Janky frames: 39287 (78.30%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37204
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8430
+
+	/android.view.ViewRootImpl@ce172cc (visibility=0)
+	Draw	Prepare	Process	Execute
+	50.00	0.86	1.40	1.33
+
+Stats since: 287178421417385ns
+Total frames rendered: 50178
+Janky frames: 39287 (78.30%)
+90th percentile: 85ms
+95th percentile: 105ms
+99th percentile: 125ms
+Number Missed Vsync: 1030
+Number High input latency: 0
+Number Slow UI thread: 37204
+Number Slow bitmap uploads: 1688
+Number Slow issue draw commands: 8430
+
+View hierarchy:
+
+  com.quicinc.trepn/com.quicinc.trepn.userinterface.main.TrepnActivity/android.view.ViewRootImpl@ee3fb5d
+  48 views, 37,88 kB of display lists
+
+  /android.view.ViewRootImpl@4968cd2
+  1 views, 0,79 kB of display lists
+
+  com.quicinc.trepn/com.quicinc.trepn.userinterface.advanced.ProfilingActivity/android.view.ViewRootImpl@f6e21a3
+  57 views, 44,98 kB of display lists
+
+  /android.view.ViewRootImpl@7362ca0
+  3 views, 3,38 kB of display lists
+
+  /android.view.ViewRootImpl@769f059
+  3 views, 3,51 kB of display lists
+
+  /android.view.ViewRootImpl@d2ca41e
+  3 views, 3,54 kB of display lists
+
+  /android.view.ViewRootImpl@33734ff
+  3 views, 3,51 kB of display lists
+
+  /android.view.ViewRootImpl@ce172cc
+  6 views, 6,14 kB of display lists
+
+
+Total ViewRootImpl: 8
+Total Views:        124
+Total DisplayList:  103,73 kB
+
+
+** Graphics info for pid 450 [com.google.android.googlequicksearchbox:search] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 4015 [com.sec.android.inputmethod] **
+
+Stats since: 61779982839ns
+Total frames rendered: 133528
+Janky frames: 22129 (16.57%)
+90th percentile: 24ms
+95th percentile: 38ms
+99th percentile: 69ms
+Number Missed Vsync: 11041
+Number High input latency: 368
+Number Slow UI thread: 13422
+Number Slow bitmap uploads: 1360
+Number Slow issue draw commands: 2565
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache          1384992 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache               3456 /   131072
+  FontRenderer 0 A8     1572864 /  1572864
+  FontRenderer 0 RGBA   2097152 /  2097152
+  FontRenderer 0 total  3670016 /  3670016
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  5058464 bytes, 4.82 MB
+
+Profile data in ms:
+
+	InputMethod/android.view.ViewRootImpl@89c7043 (visibility=8)
+	Draw	Prepare	Process	Execute
+
+Stats since: 61779982839ns
+Total frames rendered: 133528
+Janky frames: 22129 (16.57%)
+90th percentile: 24ms
+95th percentile: 38ms
+99th percentile: 69ms
+Number Missed Vsync: 11041
+Number High input latency: 368
+Number Slow UI thread: 13422
+Number Slow bitmap uploads: 1360
+Number Slow issue draw commands: 2565
+
+View hierarchy:
+
+  InputMethod/android.view.ViewRootImpl@89c7043
+  27 views, 21,30 kB of display lists
+
+
+Total ViewRootImpl: 1
+Total Views:        27
+Total DisplayList:  21,30 kB
+
+
+** Graphics info for pid 1721 [com.google.android.gms.persistent] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 15215 [com.google.process.gapps] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 12008 [com.google.android.gms] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 15193 [com.google.android.apps.maps] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 28623 [com.samsung.android.SettingsReceiver] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 31238 [com.visionobjects.resourcemanager] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 14884 [com.sec.android.daemonapp] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 29431 [com.samsung.android.sm] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13666 [com.samsung.android.sm.provider] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 14384 [com.qualcomm.telephony] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 14366 [com.sec.android.gallery3d] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 25935 [android.process.media] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 14274 [com.sec.android.inputmethod:spellcheckerService] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13776 [com.android.packageinstaller] **
+
+Stats since: 190178031986739ns
+Total frames rendered: 1713
+Janky frames: 187 (10.92%)
+90th percentile: 16ms
+95th percentile: 32ms
+99th percentile: 93ms
+Number Missed Vsync: 120
+Number High input latency: 0
+Number Slow UI thread: 134
+Number Slow bitmap uploads: 1
+Number Slow issue draw commands: 32
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache            19680 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                  0 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  543968 bytes, 0.52 MB
+
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13141 [com.android.defcontainer] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13425 [com.microsoft.office.excel] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13383 [com.microsoft.office.powerpoint] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13404 [com.microsoft.office.word] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 10814 [com.sec.android.app.samsungapps] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13354 [com.sec.android.app.sbrowser] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13285 [com.android.vending] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13239 [com.sec.android.widgetapp.samsungapps] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13205 [com.facebook.appmanager] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13693 [com.android.settings] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13533 [com.facebook.system] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 12839 [com.wssnps] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13191 [com.samsung.android.asksmanager] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13680 [com.samsung.android.themecenter] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 12763 [com.samsung.android.sm.devicesecurity] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 6537 [android.process.acore] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13651 [com.google.android.partnersetup] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13508 [com.samsung.android.bbc.bbcagent] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13446 [com.whatsapp] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13572 [com.android.shell] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 12517 [com.sec.android.provider.badge] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 7310 [com.samsung.klmsagent] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 13071 [com.samsung.android.MtpApplication] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 10665 [com.google.android.googlequicksearchbox:interactor] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 4950 [com.android.bluetooth] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 4822 [com.samsung.android.beaconmanager] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 3257 [com.samsung.ucs.ucspinpad] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 3271 [com.samsung.android.providers.context] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 2940 [org.simalliance.openmobileapi.service:remote] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 2827 [com.samsung.ucs.agent.boot] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 2815 [com.sec.smartcard.manager] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 2733 [com.android.nfc] **
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 2333 [com.android.systemui] **
+
+Stats since: 25652163791ns
+Total frames rendered: 264705
+Janky frames: 87522 (33.06%)
+90th percentile: 28ms
+95th percentile: 36ms
+99th percentile: 65ms
+Number Missed Vsync: 8558
+Number High input latency: 431
+Number Slow UI thread: 32303
+Number Slow bitmap uploads: 2228
+Number Slow issue draw commands: 46465
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache           138240 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache           16384 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache   2075872 /  2097152
+  PatchCache               2752 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA   2097152 /  2097152
+  FontRenderer 0 total  2621440 /  2621440
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  4854688 bytes, 4.63 MB
+
+Profile data in ms:
+
+	AssistPreviewPanel/android.view.ViewRootImpl@3eb6aa9 (visibility=8)
+	Draw	Prepare	Process	Execute
+
+Stats since: 25652163791ns
+Total frames rendered: 264705
+Janky frames: 87522 (33.06%)
+90th percentile: 28ms
+95th percentile: 36ms
+99th percentile: 65ms
+Number Missed Vsync: 8558
+Number High input latency: 431
+Number Slow UI thread: 32303
+Number Slow bitmap uploads: 2228
+Number Slow issue draw commands: 46465
+
+	StatusBar/android.view.ViewRootImpl@d72182e (visibility=0)
+	Draw	Prepare	Process	Execute
+	50.00	0.42	1.89	11.14
+	22.75	0.28	1.31	0.87
+	8.35	0.29	1.76	1.47
+	24.88	22.73	32.75	9.23
+	4.57	0.60	21.45	1.59
+	36.07	1.16	7.12	1.82
+	2.73	1.02	6.07	1.83
+	1.58	0.48	5.50	2.20
+	0.84	1.31	4.63	2.44
+	0.98	0.63	9.63	11.80
+	2.56	0.51	5.07	1.46
+	0.78	0.78	9.04	2.31
+	1.73	1.63	12.03	4.76
+	4.98	1.04	7.85	1.67
+	4.46	1.33	4.13	1.01
+	3.37	2.50	3.97	0.92
+	1.67	1.03	4.72	2.17
+	1.13	0.91	5.20	1.24
+	3.21	0.85	6.53	1.20
+	1.48	1.07	5.22	1.06
+	1.33	0.89	5.55	0.93
+	3.53	1.72	5.79	2.58
+	4.73	0.53	3.27	2.47
+	8.12	0.36	3.18	1.03
+	2.68	0.46	4.57	1.53
+	3.77	0.35	3.57	1.96
+	4.05	0.78	3.48	1.88
+	2.98	0.36	3.36	1.20
+	38.03	0.24	5.30	1.33
+	50.00	0.09	2.75	1.26
+	39.05	0.08	2.49	1.15
+	10.99	0.08	2.20	2.10
+	1.97	0.58	2.60	0.96
+	1.52	0.33	2.80	2.40
+	2.55	0.42	2.39	1.73
+	2.55	0.54	5.26	1.50
+	1.54	0.45	3.75	1.95
+	2.90	1.28	4.66	1.42
+	1.69	0.41	2.95	2.32
+	1.64	0.98	3.22	1.44
+	1.63	0.89	5.57	1.46
+	1.50	0.51	4.18	1.15
+	50.00	0.63	6.82	1.80
+	40.65	0.12	3.15	1.73
+	7.24	1.02	4.25	1.47
+	4.94	0.83	2.87	8.54
+	8.57	0.78	12.38	1.81
+	50.00	0.38	0.69	6.08
+	50.00	0.32	1.08	1.28
+	2.43	0.07	4.71	1.17
+	1.25	0.35	1.64	1.75
+	2.18	0.38	2.03	1.27
+	2.17	0.29	1.86	1.39
+	1.18	0.84	2.47	1.25
+	1.21	1.08	3.18	3.59
+	1.24	0.26	1.95	1.82
+	1.15	0.32	1.70	1.91
+	1.51	0.24	1.58	1.94
+	9.48	0.62	2.80	0.91
+	5.88	0.69	5.76	1.36
+	21.06	0.28	4.79	1.27
+	11.41	0.59	23.03	7.79
+	7.51	0.61	1.92	1.68
+	8.63	0.53	10.13	1.81
+	17.01	0.31	5.46	1.66
+	29.97	0.37	2.14	9.17
+	5.73	0.33	2.02	1.44
+	15.36	0.38	4.93	1.27
+	5.30	0.30	1.42	2.03
+	14.25	0.31	4.25	2.82
+	25.76	0.37	1.62	1.14
+	21.07	0.39	4.40	4.66
+	7.67	0.35	3.26	1.57
+	30.40	0.42	2.84	3.05
+	4.07	0.32	2.89	6.17
+	50.00	0.32	5.97	2.49
+	23.24	0.39	2.42	2.81
+	14.64	0.34	1.79	1.28
+	42.02	0.31	15.84	1.42
+	11.24	0.33	8.56	1.84
+	18.87	0.51	22.40	1.95
+	10.18	1.20	1.83	1.69
+	46.38	0.70	2.93	1.38
+	17.30	0.36	2.70	1.34
+	18.97	0.34	1.71	1.13
+	7.95	0.31	1.56	1.00
+	20.13	0.31	2.00	1.09
+	50.00	0.43	1.86	1.42
+	9.90	0.41	2.05	1.41
+	4.92	1.49	6.40	1.54
+	16.85	0.31	5.42	1.52
+	50.00	0.38	2.20	0.97
+	6.25	0.38	16.22	1.76
+	24.47	0.35	1.69	0.99
+	5.61	12.15	6.13	1.79
+	50.00	0.75	3.63	1.43
+	6.06	0.51	5.81	1.35
+	20.73	0.32	13.96	1.60
+	6.36	0.33	1.94	2.82
+	7.53	0.49	2.24	1.39
+	36.09	0.75	2.82	1.36
+	20.35	0.40	8.45	1.52
+	3.85	0.42	2.01	1.19
+	13.85	6.19	2.79	3.19
+	14.26	0.44	7.47	1.61
+	33.83	0.44	2.04	1.47
+	8.50	0.45	2.64	3.90
+
+Stats since: 25652163791ns
+Total frames rendered: 264705
+Janky frames: 87522 (33.06%)
+90th percentile: 28ms
+95th percentile: 36ms
+99th percentile: 65ms
+Number Missed Vsync: 8558
+Number High input latency: 431
+Number Slow UI thread: 32303
+Number Slow bitmap uploads: 2228
+Number Slow issue draw commands: 46465
+
+	Bouncer/android.view.ViewRootImpl@e867fcf (visibility=4)
+	Draw	Prepare	Process	Execute
+	47.41	0.13	3.59	2.30
+	25.88	0.22	5.16	4.12
+	11.54	0.08	3.74	0.98
+	5.28	0.13	1.54	0.65
+	2.96	0.40	1.71	0.63
+	5.09	0.39	2.26	0.86
+	4.25	0.74	2.59	0.86
+	2.84	1.05	2.83	1.47
+	5.71	0.47	2.39	0.84
+	3.81	0.70	2.71	1.37
+	3.76	0.65	2.94	1.44
+	3.46	0.60	2.51	0.99
+	5.30	1.01	2.86	0.81
+	1.61	0.87	5.31	1.53
+	0.62	0.76	3.75	1.09
+	3.42	0.14	7.99	1.44
+	1.25	0.45	4.21	1.01
+	2.38	0.12	4.76	1.78
+	4.37	0.53	4.62	1.53
+	1.51	0.11	5.21	2.06
+	1.63	0.11	5.28	1.53
+	4.41	0.17	4.78	1.34
+	1.76	0.13	6.40	1.59
+	7.98	0.19	4.19	1.37
+	1.86	0.19	6.46	1.46
+	1.42	0.13	6.73	1.25
+	1.63	0.13	7.97	2.15
+	2.09	0.19	8.19	1.43
+	3.61	0.17	5.92	1.83
+	1.83	0.12	6.81	1.39
+	1.20	0.11	6.41	2.28
+	1.20	0.12	8.12	1.34
+	50.00	0.11	8.28	1.92
+	9.01	0.14	4.86	4.30
+	1.42	0.13	7.06	1.81
+	1.05	0.11	5.26	1.29
+	0.94	0.10	3.12	2.25
+	1.09	0.11	3.49	1.34
+	1.01	0.11	3.22	1.17
+	1.03	0.16	3.82	1.85
+	19.04	0.10	1.87	3.79
+	50.00	0.16	2.88	2.51
+
+Stats since: 25652163791ns
+Total frames rendered: 264705
+Janky frames: 87522 (33.06%)
+90th percentile: 28ms
+95th percentile: 36ms
+99th percentile: 65ms
+Number Missed Vsync: 8558
+Number High input latency: 431
+Number Slow UI thread: 32303
+Number Slow bitmap uploads: 2228
+Number Slow issue draw commands: 46465
+
+View hierarchy:
+
+  AssistPreviewPanel/android.view.ViewRootImpl@3eb6aa9
+  5 views, 3,95 kB of display lists
+
+  StatusBar/android.view.ViewRootImpl@d72182e
+  634 views, 539,30 kB of display lists
+
+  Bouncer/android.view.ViewRootImpl@e867fcf
+  1 views, 0,79 kB of display lists
+
+
+Total ViewRootImpl: 3
+Total Views:        640
+Total DisplayList:  544,04 kB
+
+
+** Graphics info for pid 2304 [com.android.phone] **
+
+Stats since: 63877604580091ns
+Total frames rendered: 13
+Janky frames: 0 (0.00%)
+90th percentile: 9ms
+95th percentile: 11ms
+99th percentile: 11ms
+Number Missed Vsync: 0
+Number High input latency: 0
+Number Slow UI thread: 0
+Number Slow bitmap uploads: 0
+Number Slow issue draw commands: 0
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache            43264 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                576 /   131072
+  FontRenderer 0 A8      524288 /   524288
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total   524288 /   524288
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  568128 bytes, 0.54 MB
+
+Profile data in ms:
+
+View hierarchy:
+
+
+Total ViewRootImpl: 0
+Total Views:        0
+Total DisplayList:  0,00 kB
+
+
+** Graphics info for pid 1632 [system] **
+
+Stats since: 23589531084ns
+Total frames rendered: 50
+Janky frames: 10 (20.00%)
+90th percentile: 21ms
+95th percentile: 101ms
+99th percentile: 117ms
+Number Missed Vsync: 8
+Number High input latency: 0
+Number Slow UI thread: 8
+Number Slow bitmap uploads: 2
+Number Slow issue draw commands: 6
+
+Caches:
+Current memory usage / total memory usage (bytes):
+  TextureCache                0 / 25165824
+  LayerCache                  0 / 16777216 (numLayers = 0)
+  Layers total          0 (numLayers = 0)
+  RenderBufferCache           0 /  2097152
+  GradientCache               0 /   524288
+  PathCache                   0 /  4194304
+  TessellationCache           0 /  1048576
+  TextDropShadowCache         0 /  2097152
+  PatchCache                  0 /   131072
+  FontRenderer 0 A8           0 /        0
+  FontRenderer 0 RGBA         0 /        0
+  FontRenderer 0 total        0 /        0
+Other:
+  FboCache                    0 /        0
+Total memory usage:
+  0 bytes, 0.00 MB
+
+Profile data in ms:
+
+	KeyguardScrim/android.view.ViewRootImpl@5be705c (visibility=8)
+	ContainerKeyguardScrim/android.view.ViewRootImpl@c7843a (visibility=8)
+	Draw	Prepare	Process	Execute
+
+Stats since: 23589531084ns
+Total frames rendered: 50
+Janky frames: 10 (20.00%)
+90th percentile: 21ms
+95th percentile: 101ms
+99th percentile: 117ms
+Number Missed Vsync: 8
+Number High input latency: 0
+Number Slow UI thread: 8
+Number Slow bitmap uploads: 2
+Number Slow issue draw commands: 6
+
+View hierarchy:
+
+  KeyguardScrim/android.view.ViewRootImpl@5be705c
+  1 views, 0,79 kB of display lists
+
+  ContainerKeyguardScrim/android.view.ViewRootImpl@c7843a
+  1 views, 0,79 kB of display lists
+
+
+Total ViewRootImpl: 2
+Total Views:        2
+Total DisplayList:  1,58 kB
+
