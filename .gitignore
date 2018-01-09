@@ -16,10 +16,10 @@ __pycache__
 *.swp
 .vscode/
 rstensorflow-analysis/paper/relatedwork
-*.aux
-*.bbl
-*.log
-*.out
-*.blg
-*.synctex.gz
+rstensorflow-analysis/paper/*.aux
+rstensorflow-analysis/paper/*.bbl
+rstensorflow-analysis/paper/*.log
+rstensorflow-analysis/paper/*.out
+rstensorflow-analysis/paper/*.blg
+rstensorflow-analysis/paper/*.synctex.gz
 *.Rhistory
