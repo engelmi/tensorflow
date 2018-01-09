@@ -249,8 +249,8 @@ dev.off()
 
 # eigen und rs
 jpeg("plots/j5ADB-eigen-rs-path.jpg")
-j5ADBrsPath2$PathTime <- c(j5ADBrsPath$PathTime, 11)
-plot(x = row.names(j5ADBEigenPath), y = j5ADBrsPath2$PathTime, xlab = 'Aufeinanderfolgender Pfad', ylab = 'Ausführungszeit in ms', col = 'white')
+j5ADBrsPath2 <- c(j5ADBrsPath$PathTime, j5ADBEigenPath$PathTime[length(j5ADBrsPath$PathTime):length(j5ADBEigenPath$PathTime)])
+plot(x = row.names(j5ADBEigenPath), y = j5ADBrsPath2[1:length(j5ADBEigenPath$PathTime)], xlab = 'Aufeinanderfolgender Pfad', ylab = 'Ausführungszeit in ms', col = 'white')
 lines(loj5ADBEigenPath, col = 'red')
 lines(loj5ADBrsPath, col = 'blue')
 dev.off()
@@ -328,6 +328,13 @@ dev.off()
 #conv
 # ggf. histogramme?
 
+# eigen und rs
+jpeg("plots/s7ADB-eigen-rs-path.jpg")
+s7ADBrsPath2 <- c(s7ADBrsPath$PathTime, s7ADBEigenPath$PathTime[length(s7ADBrsPath$PathTime):length(s7ADBEigenPath$PathTime)])
+plot(x = row.names(s7ADBEigenPath), y = s7ADBrsPath2[1:length(s7ADBEigenPath$PathTime)], xlab = 'Aufeinanderfolgender Pfad', ylab = 'Ausführungszeit in ms', col = 'white')
+lines(los7ADBEigenPath, col = 'red')
+lines(los7ADBrsPath, col = 'blue')
+dev.off()
 
 # -----------------------------------------
 # RS + Eigen + beide smartphones
