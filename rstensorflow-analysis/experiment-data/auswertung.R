@@ -181,7 +181,6 @@ dev.off()
 j5ADBEigenPath <- read.csv(file = "J5/preprocessed/path-eigen.csv")
 j5ADBEigenMatmul <- read.csv(file = "J5/preprocessed/matmul-eigen.csv")
 j5ADBEigenConv <- read.csv(file = "J5/preprocessed/conv-eigen.csv")
-j5ADBEigenPath$PathTime <- j5ADBEigenPath$PathTime*1000
 # einzel plots
 # path
 jpeg("plots/j5ADB-eigen-path.jpg")
@@ -192,8 +191,8 @@ dev.off()
 # matmul
 dfj5Matmul2048Eigen <- j5ADBEigenMatmul[c(TRUE,rep(FALSE,1)), ]
 dfj5Matmul1024Eigen <- j5ADBEigenMatmul[c(rep(FALSE,1), TRUE), ]
-dfj5Matmul2048Eigen$execute_time <- dfj5Matmul2048Eigen$execute_time*1000
-dfj5Matmul1024Eigen$execute_time <- dfj5Matmul1024Eigen$execute_time*1000
+dfj5Matmul2048Eigen$execute_time <- dfj5Matmul2048Eigen$execute_time
+dfj5Matmul1024Eigen$execute_time <- dfj5Matmul1024Eigen$execute_time
 jpeg("plots/j5ADB-eigen-matmul-2048.jpg")
 plot(x = row.names(dfj5Matmul2048Eigen), y = dfj5Matmul2048Eigen$execute_time, xlab = 'Aufeinanderfolgendes Matmul', ylab = 'Ausführungszeit in ms', col = 'white')
 loj5ADBEigenMatmul2048 <- loess(dfj5Matmul2048Eigen$execute_time ~ row.names(dfj5Matmul2048Eigen))
@@ -227,8 +226,8 @@ dev.off()
 #matmul
 dfj5Matmul2048RS <- j5ADBrsMatmul[c(TRUE,rep(FALSE,1)), ]
 dfj5Matmul1024RS <- j5ADBrsMatmul[c(rep(FALSE,1), TRUE), ]
-dfj5Matmul2048RS$execute_time <- dfj5Matmul2048RS$execute_time*1000
-dfj5Matmul1024RS$execute_time <- dfj5Matmul1024RS$execute_time*1000
+dfj5Matmul2048RS$execute_time <- dfj5Matmul2048RS$execute_time
+dfj5Matmul1024RS$execute_time <- dfj5Matmul1024RS$execute_time
 jpeg("plots/j5ADB-rs-matmul-2048.jpg")
 plot(x = row.names(dfj5Matmul2048RS), y = dfj5Matmul2048RS$execute_time, xlab = 'Aufeinanderfolgendes Matmul', ylab = 'Ausführungszeit in ms', col = 'white')
 loj5ADBrsMatmul2048 <- loess(dfj5Matmul2048RS$execute_time ~ row.names(dfj5Matmul2048RS))
@@ -248,13 +247,21 @@ dev.off()
 #conv
 # ggf. histogramme?
 
+# eigen und rs
+jpeg("plots/j5ADB-eigen-rs-path.jpg")
+j5ADBrsPath2$PathTime <- c(j5ADBrsPath$PathTime, 11)
+plot(x = row.names(j5ADBEigenPath), y = j5ADBrsPath2$PathTime, xlab = 'Aufeinanderfolgender Pfad', ylab = 'Ausführungszeit in ms', col = 'white')
+lines(loj5ADBEigenPath, col = 'red')
+lines(loj5ADBrsPath, col = 'blue')
+dev.off()
+
+
 # ---------------------------------
 #   s7adb
 # Eigen
 s7ADBEigenPath <- read.csv(file = "S7/preprocessed/path-eigen.csv")
 s7ADBEigenMatmul <- read.csv(file = "S7/preprocessed/matmul-eigen.csv")
 s7ADBEigenConv <- read.csv(file = "S7/preprocessed/conv-eigen.csv")
-s7ADBEigenPath$PathTime <- s7ADBEigenPath$PathTime*1000
 # einzel plots
 # path
 jpeg("plots/s7ADB-eigen-path.jpg")
