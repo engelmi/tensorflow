@@ -1,21 +1,11 @@
-\section{Optional: Optimierung der Conv2D-Operation}
+\section{Optimierung der Conv2D-Operation}
 \label{sec:optimierungconv2d}
-+ unfolding ist mögliche optimierung
-	- literatur: 
-	- statt viele kleine, elementweise Operationen -> nur noch 1 große matrixmultiplikation
-		- theoretisch diskutieren (größe der matrizen)
-		- 1 große matmul, könnte die bereits bestehende matmul impl nutzen -> output matrix muss als tensor aufbereitet werden
-	- wie könnte es umgesetzt werden?
-
-\begin{itemize}
-	\item{Kurze Beschreibung der Convolution-Operation (wie in \cite{stanford-CS231n})}
-	\item{Ist-Analyse des Quellcodes der Conv2D-Operation}
-	\item{Unfolding (\cite{conv2d-optimizing-unfolding}) als mögliche Optimierung von Conv2D für RSTensorFlow}
-	%\begin{figure}[!t]
-	%	\centering
-	%	\includegraphics[width=3.0in]{simple-corr-model.png}
-	%	\caption{A very simple model to describe the correlation between agile and safety. }
-	%	\label{fig:simple-corr-model}
-	%\end{figure}
-	\item{Implementierung der (möglichen) Optimierung}
-\end{itemize}
+In \cite{conv2d-optimizing-unfolding} sowie in \cite{Rajbhandari:2017:OCM:3037697.3037745} wird die Technik des Unfoldings für die Optimierung von Convolutional Networks beschrieben. Beim Unfolding wird sowohl der Eingabe-Tensor $T_{E}$ als auch der Filter-Tensor $T_{F}$ in eine Matrix $M$ umgewandelt, sodass nur noch eine einfache Matrixmultiplikation der Form 
+\begin{center}
+	$M_{F} \cdot M_{E}^{T}$
+\end{center}
+durchgeführt werden muss. Das Ergebnis ist wiederum eine Matrix, deren Zeilen die Tiefen-Ebene des Output-Tensors entspricht. 
+\\
+Wie in \cite{conv2d-optimizing-unfolding} fällt dementsprechend als Overhead die Umwandlung der beiden Tensoren in die Matrizen und die Umformatierung der Ergebnis-Matrix in einen Tensor an. Ebenso wird für die separaten Matrizen zusätzlicher Arbeitsspeicher benötigt. Die Reservierung des RAM ist, wie bei den Experimenten \ref{sec:experimente} deutlich wurde, hinsichtlich einer möglichen Performance-Einbuße eher gering einzuschätzen. Allerdings würde die doppelte Menge an Arbeitsspeicher benötigt, was bei sehr großen Tensoren durchaus problematisch auf mobilen Geräten werden kann. Da die Größe der Tensoren von TF Classify allerdings eher klein sind, ist die Speichermenge für diesen speziellen Fall kein Problem. 
+\\
+Die Umsetzung des Unfoldings könnte sowohl für die RenderScript- als auch die Eigen-Implementierung eine Performance-Steigerung bewirken. Hierfür muss der Eingabe- und Filter-Tensor zunächst in die benötigte Form gebracht werden. Im nächsten Schritt wird ein Aufruf der Matrixmultiplikation mit den zu Matrizen geformten Tensoren ausgeführt. Das Ergebnis muss nun nur noch in die geforderte Tensor-Form gebracht werden. 
